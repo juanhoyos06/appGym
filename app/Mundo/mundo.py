@@ -1,5 +1,6 @@
 from app.Mundo.conexion import Conexion
 from app.Mundo.errores import *
+import time
 
 class Reserva:
 
@@ -87,6 +88,50 @@ class Usuario:
             return (cedula, contraseniaUsuario)
         else:
             raise Usuario_o_ContraseniaIncorrecto(cedula, f"Usuario o contraseña incorrecto, porfavor intente nuevamente")
+
+    def recuperar_contrasenia(self, cedula, contraseniaNueva, confirmarContrasenia):
+        """
+        Metodo para la recuperacion de la contraseña del usuario, evalua que el usuario si exista y si la contraseña
+        nueva es igual a la confirmacion de la contraseña
+        :param cedula: identificador del usuario
+        :param correo: correo del usuario
+        :param contraseniaNueva: contraseña nueva del usuario
+        :param confContrasenia: confirmacion de la contraseña
+        :return: Actualiza la contraseña en la base de datos, si hay algun error mostrara un mensaje
+        """
+
+        busquedaUsuario = self.buscar_usuario(cedula)
+        consultaActualizar = f"UPDATE Usuario SET contraseña = '{contraseniaNueva}' where cedula = '{cedula}'"
+
+        if busquedaUsuario != [] and contraseniaNueva == confirmarContrasenia:
+            self.c.update_in_database(consultaActualizar)
+        elif busquedaUsuario != [] and contraseniaNueva != confirmarContrasenia:
+            raise ContraseniasDiferentes(f"Las contraseñas no coinciden")
+        else:
+            raise UsuarioNoExistenteError(cedula, f"No existe ningun usuario con la cédula: {cedula}")
+
+    def realizar_reserva(self, cedula, fecha, hora):
+        """
+        Metodo que actualiza la base de datos insertando una nueva fila en la tabla de reservas
+        :param cedula: identificador del usuario
+        :param fecha: fecha del dia de la reserva
+        :param hora: hora de la reserva
+        :return: actualiza la base de datos si hay cupos disponibles, sino muestra un error
+        """
+
+        consultaCupos = f"SELECT COUNT (id_reserva) FROM Reserva WHERE fecha = '{fecha}' and hora = {hora}"
+        consultaCrearReserva = f"INSERT INTO Reserva VALUES('{fecha}','{hora}', {cedula})"
+        consultaBuscarReserva = f"SELECT id_usuario FROM Reserva WHERE id_usuario = '{cedula}' and fecha = '{fecha}'"
+        cupos = self.c.select_in_database(consultaCupos)
+        buscarReserva = self.c.select_in_database(consultaBuscarReserva)
+
+        if cupos[0][0] < 30 and buscarReserva == []:
+            self.c.insert_in_database(consultaCrearReserva)
+        elif cupos[0][0] >= 30 and buscarReserva == []:
+            raise LimiteCupos("Lo sentimos, no puede reservar porque se llego al limite de cupos")
+        else:
+            raise ReservaExistenteError(cedula, f"Lo sentimos, usted ya tiene una reserva para el {fecha} a las {hora}")
+
 
 class Estudiante(Usuario):
 
