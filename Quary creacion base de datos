@@ -1,0 +1,46 @@
+use gymUdeM
+
+CREATE TABLE Usuario 
+(id_usuario INT PRIMARY KEY IDENTITY(1,1),
+nombre VARCHAR(25) NOT NULL, 
+edad INT NOT NULL,
+sexo VARCHAR(12) NOT NULL,
+telefono CHAR(12) NOT NULL, 
+correo VARCHAR(25) NOT NULL,
+contraseña VARCHAR(25) NOT NULL,
+cargo VARCHAR(25) NOT NULL)
+
+
+
+CREATE TABLE EstudianteDestacado
+(id_estudiante INT PRIMARY KEY,
+seleccion VARCHAR(25) NOT NULL,
+deporte VARCHAR(25) NOT NULL,
+CONSTRAINT fk_usuario FOREIGN KEY (id_estudiante ) REFERENCES Usuario (id_usuario))
+
+CREATE TABLE Opinion 
+(id_opinion INT PRIMARY KEY IDENTITY(1,1),
+id_usuario INT NOT NULL,
+descripcion TEXT NOT NULL,
+fecha DATE NOT NULL,
+CONSTRAINT fk_usuario_opinion FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario))
+
+
+
+CREATE TABLE Programa 
+(id_programa INT PRIMARY KEY IDENTITY(1,1),
+nombre VARCHAR(25) NOT NULL)
+
+CREATE TABLE Reserva
+(fecha DATE NOT NULL,
+hora TIME NOT NULL,
+id_usuario INT NOT NULL,
+PRIMARY KEY (fecha, hora,id_usuario),
+CONSTRAINT fk_usuario_reserva FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario))
+
+CREATE TABLE ProgramasUsuario
+(id INT PRIMARY KEY IDENTITY(1,1),
+id_usuario INT NOT NULL,
+id_programa INT NOT NULL,
+CONSTRAINT fk_usuario_programa FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario),
+CONSTRAINT fk_programa FOREIGN KEY (id_programa) REFERENCES Programa (id_programa))
