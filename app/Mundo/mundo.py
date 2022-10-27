@@ -1,5 +1,7 @@
 from app.Mundo.conexion import Conexion
 from app.Mundo.errores import *
+from datetime import date
+from datetime import datetime
 
 class Reserva:
 
@@ -135,6 +137,26 @@ class Gym:
         else:
             raise ReservaExistenteError(cedula, f"Lo sentimos, usted ya tiene una reserva para el {fecha} a las {hora}")
 
+    def cupos_disponibles_por_turno(self,hora):
+        fecha = datetime.strftime(datetime.now(),"%d-%m-%y")
+
+        consulta = F"SELECT COUNT (id_usuario) FROM Reserva WHERE fecha = '{fecha}' and hora = '{hora}'"
+        cuposTotales = 30
+        cuposLleno =  self.c.select_in_database(consulta)
+        return cuposTotales-cuposLleno[0][0]
+
+    def cupos_disponibles_por_dia(self,fecha):
+
+        consulta = F"SELECT COUNT (id_usuario) FROM Reserva WHERE fecha = '{fecha}'"
+        cuposTotales = 210
+        cuposLleno =  self.c.select_in_database(consulta)
+        return cuposTotales-cuposLleno[0][0]
+
+    def reservas_usuario_dia_actual(self,cedula,fecha):
+
+        consulta = F"SELECT id_usuario, hora FROM Reserva WHERE fecha = '{fecha}' AND id_usuario = '{cedula}' "
+
+        return self.c.select_in_database(consulta)
 
 class Estudiante(Usuario):
 

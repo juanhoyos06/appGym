@@ -546,7 +546,7 @@ border: None;
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(0, 0, 0,0%);
-font: 14pt &quot;Tw Cen MT Condensed&quot;;
+font: 12pt &quot;Tw Cen MT Condensed&quot;;
 border: None;</string>
     </property>
     <property name="text">
@@ -564,7 +564,7 @@ border: None;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgba(0, 0, 0,0%);
-font: 14pt &quot;Tw Cen MT Condensed&quot;;
+font: 12pt &quot;Tw Cen MT Condensed&quot;;
 border: None;</string>
     </property>
     <property name="text">

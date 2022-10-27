@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'VentanaReservasIcEdvb.ui'
+## Form generated from reading UI file 'VentanaReservascxUwUR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -203,13 +203,13 @@ class Ui_VentanaReservas(object):
         self.label_recuerdoDiaActual.setObjectName(u"label_recuerdoDiaActual")
         self.label_recuerdoDiaActual.setGeometry(QRect(120, 140, 171, 31))
         self.label_recuerdoDiaActual.setStyleSheet(u"background-color: rgba(0, 0, 0,0%);\n"
-"font: 14pt \"Tw Cen MT Condensed\";\n"
+"font: 12pt \"Tw Cen MT Condensed\";\n"
 "border: None;")
         self.label_recuerdoDiaSiguiente = QLabel(self.frame_2)
         self.label_recuerdoDiaSiguiente.setObjectName(u"label_recuerdoDiaSiguiente")
         self.label_recuerdoDiaSiguiente.setGeometry(QRect(120, 280, 171, 31))
         self.label_recuerdoDiaSiguiente.setStyleSheet(u"background-color: rgba(0, 0, 0,0%);\n"
-"font: 14pt \"Tw Cen MT Condensed\";\n"
+"font: 12pt \"Tw Cen MT Condensed\";\n"
 "border: None;")
 
         self.retranslateUi(VentanaReservas)
