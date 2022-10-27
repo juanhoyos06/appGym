@@ -1,0 +1,18 @@
+<RCC>
+  <qresource prefix="imagenes">
+    <file>imagenes/calendar-clock (1).png</file>
+    <file>imagenes/calendar-clock.png</file>
+    <file>imagenes/circle-phone-flip.png</file>
+    <file>imagenes/envelope.png</file>
+    <file>imagenes/form.png</file>
+    <file>imagenes/forma.png</file>
+    <file>imagenes/id-insignia.png</file>
+    <file>imagenes/logo-udemedellin-footer.png</file>
+    <file>imagenes/sobre (2).png</file>
+    <file>imagenes/sobre.png</file>
+    <file>imagenes/user (1).png</file>
+    <file>imagenes/user.png</file>
+    <file>imagenes/usuario.png</file>
+    <file>imagenes/logo_udemedellin2.png</file>
+  </qresource>
+</RCC>

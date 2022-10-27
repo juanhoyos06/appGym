@@ -1,6 +1,5 @@
 from app.Mundo.conexion import Conexion
 from app.Mundo.errores import *
-import time
 
 class Reserva:
 
@@ -27,6 +26,10 @@ class Usuario:
         self.telefono: int = telefono
         self.contrasenia: str = contrasenia
         self.cargo: str = cargo
+        self.c = Conexion()
+class Gym:
+
+    def __init__(self):
         self.c = Conexion()
 
     def buscar_usuario(self, cedula):
@@ -70,10 +73,10 @@ class Usuario:
         :param cedula: Identificador del usuario
         :return: La contraseña del usuario en una lista si el usuario existe, si no, la lista estara vacia
         """
-        consulta = f"SELECT contrasenia FROM Usuario WHERE id_usuario = '{cedula}'"
+        consulta = f"SELECT contraseña FROM Usuario WHERE id_usuario = '{cedula}'"
         return self.c.select_in_database(consulta)
 
-    def iniciar_sesion(self, cedula, contraseniaUsuario):
+    def iniciar_sesion(self, cedula_usuario, contraseniaUsuario):
         """
         verifica que el usuario que quiere ingresar este en la base de datos, siendo asi le da acceso,
         de lo contrario no le permite el ingreso a la aplicacion
@@ -81,8 +84,8 @@ class Usuario:
         :param contrasenia: Conntraseña para ese identificador
         :return:
         """
-        cedula = self.buscar_usuario(cedula)
-        contrasenia = self.buscar_contrasenia(cedula)
+        cedula = self.buscar_usuario(cedula_usuario)
+        contrasenia = self.buscar_contrasenia(cedula_usuario)
 
         if cedula != [] and contrasenia[0][0] == contraseniaUsuario:
             return (cedula, contraseniaUsuario)
