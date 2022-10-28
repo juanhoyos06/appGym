@@ -1,5 +1,7 @@
 from app.Mundo.mundo import *
 from app.Mundo.errores import *
+from app.Vista.gui.ui_DialogoAceptarReserva import Ui_DialogAceptarReservas
+from app.Vista.gui.ui_DialogoRecuperarContrasenia import Ui_DialogRecuperarContrasenia
 from app.Vista.gui.ui_VentanaDeInicio import Ui_VentanaDeInicio
 from PySide2.QtWidgets import QMainWindow, QApplication, QDialog, QMessageBox, QInputDialog
 from PySide2 import QtGui, QtCore, QtWidgets
@@ -32,6 +34,7 @@ class VentanaLogin(QMainWindow):
         :return:
         """
         self.ui.pbutton_ingresar.clicked.connect(self.iniciar_sesion)
+        self.ui.pbutton_recuperarContrasenia.clicked.connect(self.abrir_dialogo_recuperar_contrasenia)
 
     def iniciar_sesion(self):
         capturaUsuario = self.ui.lineedit_usuario.text()
@@ -61,8 +64,52 @@ class VentanaLogin(QMainWindow):
             msg_box.setStandardButtons(QMessageBox.Ok)
             msg_box.exec_()
 
+    def abrir_dialogo_recuperar_contrasenia(self):
+        dialog = DialogoRecuperarContrasenia(self)
+        resp = dialog.exec_()
 
+        if resp == QDialog.Accepted:
+            capturaCorreo = dialog.ui.lineedit_correo_.text()
+            capturaCedula = dialog.ui.lineedit_cedula.text()
+            capturaContrasenia = dialog.ui.lineedit_contrasenia.text()
+            capturaConfirmarContrasenia = dialog.ui.lineedit_recuperarContrasenia.text()
 
+            if capturaCorreo != "" and capturaCedula != "" and capturaContrasenia != "" \
+                and capturaConfirmarContrasenia != "":
+
+                try:
+                    self.gym.recuperar_contrasenia(capturaCedula, capturaCorreo, capturaContrasenia, capturaConfirmarContrasenia)
+
+                except ContraseniasDiferentes as err:
+                    msg_box = QMessageBox(self)
+                    msg_box.setWindowTitle("Error recuperando contraseña.")
+                    msg_box.setIcon(QMessageBox.Critical)
+                    msg_box.setText(err.msg)
+                    msg_box.setStandardButtons(QMessageBox.Ok)
+                    msg_box.exec_()
+
+                except UsuarioNoExistenteError as err:
+                    msg_box = QMessageBox(self)
+                    msg_box.setWindowTitle("Error recuperando contraseña.")
+                    msg_box.setIcon(QMessageBox.Critical)
+                    msg_box.setText(err.msg)
+                    msg_box.setStandardButtons(QMessageBox.Ok)
+                    msg_box.exec_()
+                else:
+                    msg_box = QMessageBox(self)
+                    msg_box.setWindowTitle("Operacion Exitosa")
+                    msg_box.setIcon(QMessageBox.Information)
+                    msg_box.setText("Contraseña recuperada exitosamente correctamente.")
+                    msg_box.setStandardButtons(QMessageBox.Ok)
+                    msg_box.exec_()
+
+            else:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Error recuperando contraseña")
+                msg_box.setIcon(QMessageBox.Critical)
+                msg_box.setText("Debe de ingresar todos los campos")
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
 
 class VentanaReservas(QMainWindow):
     def __init__(self, cedula, gym: Gym):
@@ -171,7 +218,7 @@ class VentanaReservas(QMainWindow):
         :return:
         """
         self.hide()
-        self.ventanaO = VentanaOpiniones(self.cedula)
+        self.ventanaO = VentanaOpiniones(self.cedula, self.gym)
         self.ventanaO.show()
 
     def abrir_noticias(self):
@@ -180,8 +227,8 @@ class VentanaReservas(QMainWindow):
         :return:
         """
         self.hide()
-        self.ventana = VentanaNoticias(self.cedula)
-        self.ventana.show()
+        self.ventanaN = VentanaNoticias(self.cedula, self.gym)
+        self.ventanaN.show()
 
     def abrir_usuario(self):
         """
@@ -189,8 +236,8 @@ class VentanaReservas(QMainWindow):
         :return:
         """
         self.hide()
-        self.ventana = VentanaUsuario(self.cedula)
-        self.ventana.show()
+        self.ventanaU = VentanaUsuario(self.cedula, self.gym)
+        self.ventanaU.show()
 
 class VentanaTurnos(QMainWindow):
     def __init__(self, cedula, gym : Gym, fecha):
@@ -199,13 +246,222 @@ class VentanaTurnos(QMainWindow):
         self.ventanaTurno.setupUi(self)
         self.gym = gym
         self.fecha = fecha
-        self._configurar()
         self.cedula = cedula
         self.ventanaTurno.tbutton_opinion.clicked.connect(self.abrir_opinion)
         self.ventanaTurno.tbutton_noticias.clicked.connect(self.abrir_noticias)
         self.ventanaTurno.tbutton_usuario.clicked.connect(self.abrir_usuario)
         self.ventanaTurno.tbutton_reserva.clicked.connect(self.abrir_reserva)
 
+        self.ventanaTurno.pbutton_turno1.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno1)
+        self.ventanaTurno.pbutton_turno2.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno2)
+        self.ventanaTurno.pbutton_turno3.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno3)
+        self.ventanaTurno.pbutton_turno4.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno4)
+        self.ventanaTurno.pbutton_turno5.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno5)
+        self.ventanaTurno.pbutton_turno6.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno6)
+        self.ventanaTurno.pbutton_turno7.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno7)
+
+    def _configurar(self):
+        cuposDisponiblesT1 = self.gym.cupos_disponibles_por_turno(self.fecha,'6:00')
+        cuposDisponiblesT2 = self.gym.cupos_disponibles_por_turno(self.fecha,'8:00')
+        cuposDisponiblesT3 = self.gym.cupos_disponibles_por_turno(self.fecha,'10:00')
+        cuposDisponiblesT4 = self.gym.cupos_disponibles_por_turno(self.fecha,'12:00')
+        cuposDisponiblesT5 = self.gym.cupos_disponibles_por_turno(self.fecha,'14:00')
+        cuposDisponiblesT6 = self.gym.cupos_disponibles_por_turno(self.fecha,'16:00')
+        cuposDisponiblesT7 = self.gym.cupos_disponibles_por_turno(self.fecha,'18:00')
+
+        if cuposDisponiblesT1 == 0:
+            self.ventanaTurno.pbutton_turno1.setEnabled(False)
+
+        if cuposDisponiblesT2 == 0:
+            self.ventanaTurno.pbutton_turno2.setEnabled(False)
+
+        if cuposDisponiblesT3 == 0:
+            self.ventanaTurno.pbutton_turno3.setEnabled(False)
+
+        if cuposDisponiblesT4 == 0:
+            self.ventanaTurno.pbutton_turno4.setEnabled(False)
+
+        if cuposDisponiblesT5 == 0:
+            self.ventanaTurno.pbutton_turno5.setEnabled(False)
+
+        if cuposDisponiblesT6 == 0:
+            self.ventanaTurno.pbutton_turno6.setEnabled(False)
+
+        if cuposDisponiblesT7 == 0:
+            self.ventanaTurno.pbutton_turno7.setEnabled(False)
+
+
+
+        self.ventanaTurno.pbutton_turno1.setText(f"6:00AM - 8:00AM                      {cuposDisponiblesT1} Cupos Disponibles")
+        self.ventanaTurno.pbutton_turno2.setText(f"8:00AM - 10:00AM                     {cuposDisponiblesT2} Cupos Disponibles")
+        self.ventanaTurno.pbutton_turno3.setText(f"10:00AM - 12:00AM                    {cuposDisponiblesT3} Cupos Disponibles")
+        self.ventanaTurno.pbutton_turno4.setText(f"2:00AM - 2:00PM                      {cuposDisponiblesT4} Cupos Disponibles")
+        self.ventanaTurno.pbutton_turno5.setText(f"2:00PM - 4:00PM                      {cuposDisponiblesT5} Cupos Disponibles")
+        self.ventanaTurno.pbutton_turno6.setText(f"4:00PM - 6:00PM                      {cuposDisponiblesT6} Cupos Disponibles")
+        self.ventanaTurno.pbutton_turno7.setText(f"6:00PM - 8:00PM                      {cuposDisponiblesT7} Cupos Disponibles")
+
+
+    def abrir_dialogo_aceptar_reserva_turno1(self):
+        dialog = DialogoAceptarReserva(self)
+        resp = dialog.exec_()
+        hora = "6:00"
+        if resp  == QDialog.Accepted:
+            try:
+                self.gym.realizar_reserva(self.cedula, self.fecha, hora)
+            except ReservaExistenteError as err:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Error realizando reserva ")
+                msg_box.setIcon(QMessageBox.Critical)
+                msg_box.setText(err.msg)
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+            else:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Operacion Exitosa")
+                msg_box.setIcon(QMessageBox.Information)
+                msg_box.setText("Reserva realizada correctamente.")
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+                self._configurar()
+
+    def abrir_dialogo_aceptar_reserva_turno2(self):
+        dialog = DialogoAceptarReserva(self)
+        resp = dialog.exec_()
+        hora = "8:00"
+        if resp  == QDialog.Accepted:
+            try:
+                self.gym.realizar_reserva(self.cedula, self.fecha, hora)
+            except ReservaExistenteError as err:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Error realizando reserva ")
+                msg_box.setIcon(QMessageBox.Critical)
+                msg_box.setText(err.msg)
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+            else:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Operacion Exitosa")
+                msg_box.setIcon(QMessageBox.Information)
+                msg_box.setText("Reserva realizada correctamente.")
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+                self._configurar()
+
+    def abrir_dialogo_aceptar_reserva_turno3(self):
+        dialog = DialogoAceptarReserva(self)
+        resp = dialog.exec_()
+        hora = "10:00"
+        if resp  == QDialog.Accepted:
+            try:
+                self.gym.realizar_reserva(self.cedula, self.fecha, hora)
+            except ReservaExistenteError as err:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Error realizando reserva ")
+                msg_box.setIcon(QMessageBox.Critical)
+                msg_box.setText(err.msg)
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+            else:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Operacion Exitosa")
+                msg_box.setIcon(QMessageBox.Information)
+                msg_box.setText("Reserva realizada correctamente.")
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+                self._configurar()
+
+    def abrir_dialogo_aceptar_reserva_turno4(self):
+        dialog = DialogoAceptarReserva(self)
+        resp = dialog.exec_()
+        hora = "12:00"
+        if resp  == QDialog.Accepted:
+            try:
+                self.gym.realizar_reserva(self.cedula, self.fecha, hora)
+            except ReservaExistenteError as err:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Error realizando reserva ")
+                msg_box.setIcon(QMessageBox.Critical)
+                msg_box.setText(err.msg)
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+
+            else:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Operacion Exitosa")
+                msg_box.setIcon(QMessageBox.Information)
+                msg_box.setText("Reserva realizada correctamente.")
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+                self._configurar()
+
+    def abrir_dialogo_aceptar_reserva_turno5(self):
+        dialog = DialogoAceptarReserva(self)
+        resp = dialog.exec_()
+        hora = "14:00"
+        if resp  == QDialog.Accepted:
+            try:
+                self.gym.realizar_reserva(self.cedula, self.fecha, hora)
+            except ReservaExistenteError as err:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Error realizando reserva ")
+                msg_box.setIcon(QMessageBox.Critical)
+                msg_box.setText(err.msg)
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+            else:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Operacion Exitosa")
+                msg_box.setIcon(QMessageBox.Information)
+                msg_box.setText("Reserva realizada correctamente.")
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+                self._configurar()
+
+    def abrir_dialogo_aceptar_reserva_turno6(self):
+        dialog = DialogoAceptarReserva(self)
+        resp = dialog.exec_()
+        hora = "16:00"
+        if resp  == QDialog.Accepted:
+            try:
+                self.gym.realizar_reserva(self.cedula, self.fecha, hora)
+            except ReservaExistenteError as err:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Error realizando reserva ")
+                msg_box.setIcon(QMessageBox.Critical)
+                msg_box.setText(err.msg)
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+            else:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Operacion Exitosa")
+                msg_box.setIcon(QMessageBox.Information)
+                msg_box.setText("Reserva realizada correctamente.")
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+                self._configurar()
+
+    def abrir_dialogo_aceptar_reserva_turno7(self):
+        dialog = DialogoAceptarReserva(self)
+        resp = dialog.exec_()
+        hora = "18:00"
+        if resp  == QDialog.Accepted:
+            try:
+                self.gym.realizar_reserva(self.cedula, self.fecha, hora)
+            except ReservaExistenteError as err:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Error realizando reserva ")
+                msg_box.setIcon(QMessageBox.Critical)
+                msg_box.setText(err.msg)
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+            else:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Operacion Exitosa")
+                msg_box.setIcon(QMessageBox.Information)
+                msg_box.setText("Reserva realizada correctamente.")
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+                self._configurar()
 
     def abrir_reserva(self):
         self.hide()
@@ -214,28 +470,27 @@ class VentanaTurnos(QMainWindow):
 
     def abrir_opinion(self):
         self.hide()
-        self.ventanaO = VentanaOpiniones(self.cedula)
+        self.ventanaO = VentanaOpiniones(self.cedula, self.gym)
         self.ventanaO.show()
 
     def abrir_noticias(self):
         self.hide()
-        self.ventana = VentanaNoticias(self.cedula)
+        self.ventana = VentanaNoticias(self.cedula, self.gym)
         self.ventana.show()
 
     def abrir_usuario(self):
         self.hide()
-        self.ventana = VentanaUsuario(self.cedula)
+        self.ventana = VentanaUsuario(self.cedula, self.gym)
         self.ventana.show()
 
-    def _configurar(self):
-        pass
 
 class VentanaOpiniones(QMainWindow):
-    def __init__(self, cedula):
+    def __init__(self, cedula, gym : Gym):
         super().__init__()
         self.ventanaOpiniones = Ui_VentanaOpiniones()
         self.ventanaOpiniones.setupUi(self)
         self.cedula = cedula
+        self.gym = gym
         self.ventanaOpiniones.tbutton_reserva.clicked.connect(self.abrir_reserva)
         self.ventanaOpiniones.tbutton_noticias.clicked.connect(self.abrir_noticias)
         self.ventanaOpiniones.tbutton_usuario.clicked.connect(self.abrir_usuario)
@@ -243,67 +498,90 @@ class VentanaOpiniones(QMainWindow):
 
     def abrir_reserva(self):
         self.hide()
-        self.ventana = VentanaReservas(self.cedula)
+        self.ventana = VentanaReservas(self.cedula,self.gym)
         self.ventana.show()
 
     def abrir_noticias(self):
         self.hide()
-        self.ventana = VentanaNoticias(self.cedula)
+        self.ventana = VentanaNoticias(self.cedula, self.gym)
         self.ventana.show()
 
     def abrir_usuario(self):
         self.hide()
-        self.ventana = VentanaUsuario(self.cedula)
+        self.ventana = VentanaUsuario(self.cedula, self.gym)
         self.ventana.show()
 
 class VentanaUsuario(QMainWindow):
-    def __init__(self, cedula):
+    def __init__(self, cedula, gym: Gym):
         super().__init__()
         self.ventanaUsuario = Ui_VentanaUsuario()
         self.ventanaUsuario.setupUi(self)
         self.cedula = cedula
+        self.gym = gym
         self.ventanaUsuario.tbutton_opinion.clicked.connect(self.abrir_opinion)
         self.ventanaUsuario.tbutton_noticias.clicked.connect(self.abrir_noticias)
         self.ventanaUsuario.tbutton_reserva.clicked.connect(self.abrir_reserva)
 
     def abrir_reserva(self):
         self.hide()
-        self.ventana = VentanaReservas(self.cedula)
+        self.ventana = VentanaReservas(self.cedula, self.gym)
         self.ventana.show()
 
     def abrir_noticias(self):
         self.hide()
-        self.ventana = VentanaNoticias(self.cedula)
+        self.ventana = VentanaNoticias(self.cedula, self.gym)
         self.ventana.show()
 
     def abrir_opinion(self):
         self.hide()
-        self.ventana = VentanaOpiniones(self.cedula)
+        self.ventana = VentanaOpiniones(self.cedula, self.gym)
         self.ventana.show()
 
 
 class VentanaNoticias(QMainWindow):
-    def __init__(self, cedula):
+    def __init__(self, cedula, gym:Gym):
         super().__init__()
         self.ventanaNoticias = Ui_VentanaNoticias()
         self.ventanaNoticias.setupUi(self)
         self.cedula = cedula
+        self.gym = gym
         self.ventanaNoticias.tbutton_opinion.clicked.connect(self.abrir_opinion)
         self.ventanaNoticias.tbutton_usuario.clicked.connect(self.abrir_usuario)
         self.ventanaNoticias.tbutton_reservas.clicked.connect(self.abrir_reserva)
 
     def abrir_reserva(self):
         self.hide()
-        self.ventana = VentanaReservas(self.cedula)
+        self.ventana = VentanaReservas(self.cedula,self.gym)
         self.ventana.show()
 
     def abrir_usuario(self):
         self.hide()
-        self.ventana = VentanaUsuario(self.cedula)
+        self.ventana = VentanaUsuario(self.cedula,self.gym)
         self.ventana.show()
 
     def abrir_opinion(self):
         self.hide()
-        self.ventana = VentanaOpiniones(self.cedula)
+        self.ventana = VentanaOpiniones(self.cedula,self.gym)
         self.ventana.show()
 
+class DialogoAceptarReserva(QDialog):
+
+    def __init__(self, parent=None):
+        QDialog.__init__(self,parent)
+        self.ui = Ui_DialogAceptarReservas()
+        self.ui.setupUi(self)
+
+
+    def accept(self) -> None:
+        super().accept()
+
+class DialogoRecuperarContrasenia(QDialog):
+
+    def __init__(self, parent=None):
+        QDialog.__init__(self,parent)
+        self.ui = Ui_DialogRecuperarContrasenia()
+        self.ui.setupUi(self)
+
+
+    def accept(self) -> None:
+        super().accept()

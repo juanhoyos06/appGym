@@ -160,6 +160,9 @@ border: None;</string>
       <height>30</height>
      </size>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgba(0,0,0,0%);
 image: url(:/imagenes/imagenes/user.png);</string>
@@ -198,6 +201,9 @@ image: url(:/imagenes/imagenes/user.png);</string>
       <width>48</width>
       <height>30</height>
      </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgba(0,0,0,0%);
@@ -238,6 +244,9 @@ image: url(:/imagenes/imagenes/forma.png);</string>
       <height>30</height>
      </size>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgba(0,0,0,0%);
 image: url(:/imagenes/imagenes/calendar-clock.png);</string>
@@ -270,6 +279,9 @@ image: url(:/imagenes/imagenes/calendar-clock.png);</string>
       <width>48</width>
       <height>33</height>
      </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 0, 0);
@@ -312,7 +324,7 @@ image: url(:/imagenes/imagenes/sobre.png);</string>
       <x>0</x>
       <y>40</y>
       <width>333</width>
-      <height>331</height>
+      <height>271</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -321,13 +333,16 @@ image: url(:/imagenes/imagenes/sobre.png);</string>
       <height>0</height>
      </size>
     </property>
+    <property name="cursor" stdset="0">
+     <cursorShape>IBeamCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">border:None;</string>
     </property>
     <property name="documentTitle">
      <string/>
     </property>
-    <property name="plainText">
+    <property name="placeholderText">
      <string>Descripcion</string>
     </property>
    </widget>
@@ -344,6 +359,47 @@ image: url(:/imagenes/imagenes/sobre.png);</string>
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>330</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color:  rgb(255, 0, 0);
+	border-radius: 10px;
+	font: 14pt &quot;Tw Cen MT Condensed&quot;;
+
+}
+
+QPushButton:hover{
+	
+	background-color: rgb(255, 208, 180);
+	border-radius: 10px;
+	font: 14pt &quot;Tw Cen MT Condensed&quot;;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Enviar</string>
+    </property>
+   </widget>
    <zorder>plainTextEdit_descripcion</zorder>
    <zorder>line</zorder>
    <zorder>tbutton_usuario</zorder>
@@ -352,6 +408,7 @@ image: url(:/imagenes/imagenes/sobre.png);</string>
    <zorder>tbutton_opinion</zorder>
    <zorder>lineedit_asunto</zorder>
    <zorder>line_2</zorder>
+   <zorder>pushButton</zorder>
   </widget>
   <zorder>frame_2</zorder>
   <zorder>frame</zorder>

@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="imagenes">
+    <file>imagenes/bloquear.png</file>
     <file>imagenes/calendar-clock (1).png</file>
     <file>imagenes/calendar-clock.png</file>
     <file>imagenes/circle-phone-flip.png</file>

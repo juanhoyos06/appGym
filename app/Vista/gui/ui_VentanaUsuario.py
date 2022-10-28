@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'VentanaUsuarioqlEbBt.ui'
+## Form generated from reading UI file 'VentanaUsuariokYYSRD.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -59,6 +59,7 @@ class Ui_VentanaUsuario(object):
         self.tbutton_noticias.setGeometry(QRect(100, 400, 48, 30))
         self.tbutton_noticias.setMinimumSize(QSize(48, 30))
         self.tbutton_noticias.setMaximumSize(QSize(48, 30))
+        self.tbutton_noticias.setCursor(QCursor(Qt.PointingHandCursor))
         self.tbutton_noticias.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
 "image: url(:/imagenes/imagenes/forma.png);\n"
 "")
@@ -71,6 +72,7 @@ class Ui_VentanaUsuario(object):
         self.tbutton_opinion.setGeometry(QRect(20, 400, 48, 30))
         self.tbutton_opinion.setMinimumSize(QSize(48, 30))
         self.tbutton_opinion.setMaximumSize(QSize(48, 30))
+        self.tbutton_opinion.setCursor(QCursor(Qt.PointingHandCursor))
         self.tbutton_opinion.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
 "image: url(:/imagenes/imagenes/envelope.png);")
         icon1 = QIcon()
@@ -81,6 +83,7 @@ class Ui_VentanaUsuario(object):
         self.tbutton_usuario.setObjectName(u"tbutton_usuario")
         self.tbutton_usuario.setGeometry(QRect(260, 370, 48, 61))
         self.tbutton_usuario.setMinimumSize(QSize(48, 33))
+        self.tbutton_usuario.setCursor(QCursor(Qt.PointingHandCursor))
         self.tbutton_usuario.setStyleSheet(u"background-color: rgb(255, 0, 0);\n"
 "border-radius: 20px;\n"
 "image: url(:/imagenes/imagenes/user (1).png);")
@@ -93,6 +96,7 @@ class Ui_VentanaUsuario(object):
         self.tbutton_reserva.setGeometry(QRect(180, 400, 48, 30))
         self.tbutton_reserva.setMinimumSize(QSize(48, 30))
         self.tbutton_reserva.setMaximumSize(QSize(48, 30))
+        self.tbutton_reserva.setCursor(QCursor(Qt.PointingHandCursor))
         self.tbutton_reserva.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
 "image: url(:/imagenes/imagenes/calendar-clock.png);")
         icon3 = QIcon()
@@ -162,6 +166,7 @@ class Ui_VentanaUsuario(object):
         self.pbutton_guardar = QPushButton(self.frame_2)
         self.pbutton_guardar.setObjectName(u"pbutton_guardar")
         self.pbutton_guardar.setGeometry(QRect(70, 300, 181, 23))
+        self.pbutton_guardar.setCursor(QCursor(Qt.PointingHandCursor))
         self.pbutton_guardar.setStyleSheet(u"QPushButton{\n"
 "	background-color:  rgb(255, 0, 0);\n"
 "	border-radius: 10px;\n"

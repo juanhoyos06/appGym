@@ -148,6 +148,9 @@ border: None;</string>
       <height>33</height>
      </size>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 0, 0);
 image: url(:/imagenes/imagenes/calendar-clock (1).png);
@@ -189,6 +192,9 @@ border-radius: 10px;
       <height>30</height>
      </size>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgba(0,0,0,0%);
 image: url(:/imagenes/imagenes/user.png);</string>
@@ -227,6 +233,9 @@ image: url(:/imagenes/imagenes/user.png);</string>
       <width>48</width>
       <height>30</height>
      </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgba(0,0,0,0%);
@@ -267,6 +276,9 @@ image: url(:/imagenes/imagenes/forma.png);</string>
       <height>30</height>
      </size>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgba(0,0,0,0%);
 image: url(:/imagenes/imagenes/envelope.png);</string>
@@ -293,6 +305,9 @@ image: url(:/imagenes/imagenes/envelope.png);</string>
       <width>311</width>
       <height>101</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">
@@ -419,6 +434,9 @@ border: None;</string>
       <width>311</width>
       <height>101</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">

@@ -160,6 +160,9 @@ border: None;</string>
       <height>30</height>
      </size>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgba(0,0,0,0%);
 image: url(:/imagenes/imagenes/forma.png);
@@ -200,6 +203,9 @@ image: url(:/imagenes/imagenes/forma.png);
       <height>30</height>
      </size>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgba(0,0,0,0%);
 image: url(:/imagenes/imagenes/envelope.png);</string>
@@ -232,6 +238,9 @@ image: url(:/imagenes/imagenes/envelope.png);</string>
       <width>48</width>
       <height>33</height>
      </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 0, 0);
@@ -272,6 +281,9 @@ image: url(:/imagenes/imagenes/user (1).png);</string>
       <width>48</width>
       <height>30</height>
      </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgba(0,0,0,0%);
@@ -534,6 +546,9 @@ border-radius: 10px;</string>
       <width>181</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{

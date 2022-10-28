@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'VentanaOpinionessDhKxS.ui'
+## Form generated from reading UI file 'VentanaOpinionesqSpIHa.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -59,6 +59,7 @@ class Ui_VentanaOpiniones(object):
         self.tbutton_usuario.setGeometry(QRect(260, 400, 48, 30))
         self.tbutton_usuario.setMinimumSize(QSize(48, 30))
         self.tbutton_usuario.setMaximumSize(QSize(48, 30))
+        self.tbutton_usuario.setCursor(QCursor(Qt.PointingHandCursor))
         self.tbutton_usuario.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
 "image: url(:/imagenes/imagenes/user.png);")
         icon = QIcon()
@@ -70,6 +71,7 @@ class Ui_VentanaOpiniones(object):
         self.tbutton_noticias.setGeometry(QRect(100, 400, 48, 30))
         self.tbutton_noticias.setMinimumSize(QSize(48, 30))
         self.tbutton_noticias.setMaximumSize(QSize(48, 30))
+        self.tbutton_noticias.setCursor(QCursor(Qt.PointingHandCursor))
         self.tbutton_noticias.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
 "image: url(:/imagenes/imagenes/forma.png);")
         icon1 = QIcon()
@@ -81,6 +83,7 @@ class Ui_VentanaOpiniones(object):
         self.tbutton_reserva.setGeometry(QRect(180, 400, 48, 30))
         self.tbutton_reserva.setMinimumSize(QSize(48, 30))
         self.tbutton_reserva.setMaximumSize(QSize(48, 30))
+        self.tbutton_reserva.setCursor(QCursor(Qt.PointingHandCursor))
         self.tbutton_reserva.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
 "image: url(:/imagenes/imagenes/calendar-clock.png);")
         icon2 = QIcon()
@@ -91,6 +94,7 @@ class Ui_VentanaOpiniones(object):
         self.tbutton_opinion.setObjectName(u"tbutton_opinion")
         self.tbutton_opinion.setGeometry(QRect(20, 370, 48, 61))
         self.tbutton_opinion.setMinimumSize(QSize(48, 33))
+        self.tbutton_opinion.setCursor(QCursor(Qt.PointingHandCursor))
         self.tbutton_opinion.setStyleSheet(u"background-color: rgb(255, 0, 0);\n"
 "border-radius: 20px;\n"
 "image: url(:/imagenes/imagenes/sobre.png);")
@@ -104,14 +108,39 @@ class Ui_VentanaOpiniones(object):
         self.lineedit_asunto.setStyleSheet(u"border:None;")
         self.plainTextEdit_descripcion = QPlainTextEdit(self.frame_2)
         self.plainTextEdit_descripcion.setObjectName(u"plainTextEdit_descripcion")
-        self.plainTextEdit_descripcion.setGeometry(QRect(0, 40, 333, 331))
+        self.plainTextEdit_descripcion.setGeometry(QRect(0, 40, 333, 271))
         self.plainTextEdit_descripcion.setMinimumSize(QSize(333, 0))
+        self.plainTextEdit_descripcion.viewport().setProperty("cursor", QCursor(Qt.IBeamCursor))
         self.plainTextEdit_descripcion.setStyleSheet(u"border:None;")
         self.line_2 = QFrame(self.frame_2)
         self.line_2.setObjectName(u"line_2")
         self.line_2.setGeometry(QRect(0, 30, 331, 16))
         self.line_2.setFrameShape(QFrame.HLine)
         self.line_2.setFrameShadow(QFrame.Sunken)
+        self.pushButton = QPushButton(self.frame_2)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(130, 330, 81, 23))
+        sizePolicy = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy)
+        self.pushButton.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pushButton.setLayoutDirection(Qt.LeftToRight)
+        self.pushButton.setStyleSheet(u"QPushButton{\n"
+"	background-color:  rgb(255, 0, 0);\n"
+"	border-radius: 10px;\n"
+"	font: 14pt \"Tw Cen MT Condensed\";\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"	\n"
+"	background-color: rgb(255, 208, 180);\n"
+"	border-radius: 10px;\n"
+"	font: 14pt \"Tw Cen MT Condensed\";\n"
+"}\n"
+"")
         self.plainTextEdit_descripcion.raise_()
         self.line.raise_()
         self.tbutton_usuario.raise_()
@@ -120,6 +149,7 @@ class Ui_VentanaOpiniones(object):
         self.tbutton_opinion.raise_()
         self.lineedit_asunto.raise_()
         self.line_2.raise_()
+        self.pushButton.raise_()
         self.frame_2.raise_()
         self.frame.raise_()
 
@@ -138,6 +168,7 @@ class Ui_VentanaOpiniones(object):
         self.tbutton_opinion.setText("")
         self.lineedit_asunto.setPlaceholderText(QCoreApplication.translate("VentanaOpiniones", u"Asunto", None))
         self.plainTextEdit_descripcion.setDocumentTitle("")
-        self.plainTextEdit_descripcion.setPlainText(QCoreApplication.translate("VentanaOpiniones", u"Descripcion", None))
+        self.plainTextEdit_descripcion.setPlaceholderText(QCoreApplication.translate("VentanaOpiniones", u"Descripcion", None))
+        self.pushButton.setText(QCoreApplication.translate("VentanaOpiniones", u"Enviar", None))
     # retranslateUi
 

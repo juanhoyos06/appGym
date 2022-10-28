@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'VentanaDeIniciodEwStF.ui'
+## Form generated from reading UI file 'VentanaDeInicioJGSYtL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -57,6 +57,7 @@ class Ui_VentanaDeInicio(object):
         self.pbutton_salir.setObjectName(u"pbutton_salir")
         self.pbutton_salir.setEnabled(True)
         self.pbutton_salir.setGeometry(QRect(90, 410, 75, 23))
+        self.pbutton_salir.setCursor(QCursor(Qt.PointingHandCursor))
         self.pbutton_salir.setStyleSheet(u"\n"
 "\n"
 "\n"
@@ -77,6 +78,7 @@ class Ui_VentanaDeInicio(object):
         self.pbutton_ingresar = QPushButton(self.frame)
         self.pbutton_ingresar.setObjectName(u"pbutton_ingresar")
         self.pbutton_ingresar.setGeometry(QRect(170, 410, 81, 23))
+        self.pbutton_ingresar.setCursor(QCursor(Qt.PointingHandCursor))
         self.pbutton_ingresar.setStyleSheet(u"QPushButton{\n"
 "	background-color:  rgb(255, 0, 0);\n"
 "	border-radius: 10px;\n"
@@ -103,6 +105,7 @@ class Ui_VentanaDeInicio(object):
 "font: 14pt \"Tw Cen MT Condensed\";")
         self.lineedit_usuario.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.lineedit_usuario.setDragEnabled(False)
+        self.lineedit_usuario.setCursorMoveStyle(Qt.LogicalMoveStyle)
         self.lineedit_contrasenia = QLineEdit(self.frame)
         self.lineedit_contrasenia.setObjectName(u"lineedit_contrasenia")
         self.lineedit_contrasenia.setGeometry(QRect(50, 270, 241, 31))
@@ -126,6 +129,7 @@ class Ui_VentanaDeInicio(object):
         font1.setUnderline(True)
         font1.setWeight(50)
         self.pbutton_recuperarContrasenia.setFont(font1)
+        self.pbutton_recuperarContrasenia.setCursor(QCursor(Qt.PointingHandCursor))
         self.pbutton_recuperarContrasenia.setStyleSheet(u"background-color: rgba(0,0,0,0%);\n"
 "font: 14pt \"Tw Cen MT Condensed\";\n"
 "selection-color: rgb(74, 199, 36);\n"
@@ -137,6 +141,7 @@ class Ui_VentanaDeInicio(object):
         self.pbutton_crearCuenta.setMinimumSize(QSize(0, 23))
         self.pbutton_crearCuenta.setMaximumSize(QSize(131, 23))
         self.pbutton_crearCuenta.setFont(font1)
+        self.pbutton_crearCuenta.setCursor(QCursor(Qt.PointingHandCursor))
         self.pbutton_crearCuenta.setStyleSheet(u"background-color: rgba(0,0,0,0%);\n"
 "font: 14pt \"Tw Cen MT Condensed\";\n"
 "selection-color: rgb(74, 199, 36);\n"
@@ -146,7 +151,8 @@ class Ui_VentanaDeInicio(object):
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(20, 20, 291, 131))
-        self.label.setStyleSheet(u"image: url(:/imagenes/imagenes/logo_udemedellin2.png);")
+        self.label.setStyleSheet(u"image: url(:/imagenes/imagenes/logo_udemedellin2.png);\n"
+"")
         VentanaDeInicio.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(VentanaDeInicio)
@@ -159,7 +165,7 @@ class Ui_VentanaDeInicio(object):
     # setupUi
 
     def retranslateUi(self, VentanaDeInicio):
-        VentanaDeInicio.setWindowTitle(QCoreApplication.translate("VentanaDeInicio", u"Login-In Touch", None))
+        VentanaDeInicio.setWindowTitle(QCoreApplication.translate("VentanaDeInicio", u"Login AppGym", None))
         self.label_iniciarSesion.setText(QCoreApplication.translate("VentanaDeInicio", u"<html><head/><body><p><span style=\" color:#000000;\">Iniciar sesion </span></p></body></html>", None))
         self.pbutton_salir.setText(QCoreApplication.translate("VentanaDeInicio", u"Salir", None))
         self.pbutton_ingresar.setText(QCoreApplication.translate("VentanaDeInicio", u"Ingresar", None))

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'VentanaReservascxUwUR.ui'
+## Form generated from reading UI file 'VentanaReservaszxBWgw.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -56,6 +56,7 @@ class Ui_VentanaReservas(object):
         self.tbutton_reserva.setObjectName(u"tbutton_reserva")
         self.tbutton_reserva.setGeometry(QRect(180, 370, 48, 61))
         self.tbutton_reserva.setMinimumSize(QSize(48, 33))
+        self.tbutton_reserva.setCursor(QCursor(Qt.PointingHandCursor))
         self.tbutton_reserva.setStyleSheet(u"background-color: rgb(255, 0, 0);\n"
 "image: url(:/imagenes/imagenes/calendar-clock (1).png);\n"
 "border-radius: 10px;\n"
@@ -69,6 +70,7 @@ class Ui_VentanaReservas(object):
         self.tbutton_usuario.setGeometry(QRect(260, 400, 48, 30))
         self.tbutton_usuario.setMinimumSize(QSize(48, 30))
         self.tbutton_usuario.setMaximumSize(QSize(48, 30))
+        self.tbutton_usuario.setCursor(QCursor(Qt.PointingHandCursor))
         self.tbutton_usuario.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
 "image: url(:/imagenes/imagenes/user.png);")
         icon1 = QIcon()
@@ -80,6 +82,7 @@ class Ui_VentanaReservas(object):
         self.tbutton_noticias.setGeometry(QRect(100, 400, 48, 30))
         self.tbutton_noticias.setMinimumSize(QSize(48, 30))
         self.tbutton_noticias.setMaximumSize(QSize(48, 30))
+        self.tbutton_noticias.setCursor(QCursor(Qt.PointingHandCursor))
         self.tbutton_noticias.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
 "image: url(:/imagenes/imagenes/forma.png);")
         icon2 = QIcon()
@@ -91,6 +94,7 @@ class Ui_VentanaReservas(object):
         self.tbutton_opinion.setGeometry(QRect(20, 400, 48, 30))
         self.tbutton_opinion.setMinimumSize(QSize(48, 30))
         self.tbutton_opinion.setMaximumSize(QSize(48, 30))
+        self.tbutton_opinion.setCursor(QCursor(Qt.PointingHandCursor))
         self.tbutton_opinion.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
 "image: url(:/imagenes/imagenes/envelope.png);")
         icon3 = QIcon()
@@ -100,6 +104,7 @@ class Ui_VentanaReservas(object):
         self.pbutton_reservadia = QPushButton(self.frame_2)
         self.pbutton_reservadia.setObjectName(u"pbutton_reservadia")
         self.pbutton_reservadia.setGeometry(QRect(10, 80, 311, 101))
+        self.pbutton_reservadia.setCursor(QCursor(Qt.PointingHandCursor))
         self.pbutton_reservadia.setStyleSheet(u"\n"
 "QPushButton{\n"
 "	background-color: rgb(230, 230, 230);\n"
@@ -152,6 +157,7 @@ class Ui_VentanaReservas(object):
         self.pbutton_reservadiaSig = QPushButton(self.frame_2)
         self.pbutton_reservadiaSig.setObjectName(u"pbutton_reservadiaSig")
         self.pbutton_reservadiaSig.setGeometry(QRect(10, 220, 311, 101))
+        self.pbutton_reservadiaSig.setCursor(QCursor(Qt.PointingHandCursor))
         self.pbutton_reservadiaSig.setStyleSheet(u"\n"
 "QPushButton{\n"
 "	background-color: rgb(230, 230, 230);\n"

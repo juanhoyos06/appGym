@@ -94,7 +94,7 @@ class Gym:
         else:
             raise Usuario_o_ContraseniaIncorrecto(cedula, f"Usuario o contraseña incorrecto, porfavor intente nuevamente")
 
-    def recuperar_contrasenia(self, cedula, contraseniaNueva, confirmarContrasenia):
+    def recuperar_contrasenia(self, cedula, correo, contraseniaNueva, confirmarContrasenia):
         """
         Metodo para la recuperacion de la contraseña del usuario, evalua que el usuario si exista y si la contraseña
         nueva es igual a la confirmacion de la contraseña
@@ -106,7 +106,7 @@ class Gym:
         """
 
         busquedaUsuario = self.buscar_usuario(cedula)
-        consultaActualizar = f"UPDATE Usuario SET contraseña = '{contraseniaNueva}' where cedula = '{cedula}'"
+        consultaActualizar = f"UPDATE Usuario SET contraseña = '{contraseniaNueva}' where id_usuario = '{cedula}'"
 
         if busquedaUsuario != [] and contraseniaNueva == confirmarContrasenia:
             self.c.update_in_database(consultaActualizar)
@@ -124,25 +124,24 @@ class Gym:
         :return: actualiza la base de datos si hay cupos disponibles, sino muestra un error
         """
 
-        consultaCupos = f"SELECT COUNT (id_reserva) FROM Reserva WHERE fecha = '{fecha}' and hora = {hora}"
+        consultaCupos = f"SELECT COUNT(id_usuario) FROM Reserva WHERE fecha = '{fecha}' AND hora = '{hora}'"
         consultaCrearReserva = f"INSERT INTO Reserva VALUES('{fecha}','{hora}', {cedula})"
-        consultaBuscarReserva = f"SELECT id_usuario FROM Reserva WHERE id_usuario = '{cedula}' and fecha = '{fecha}'"
+        consultaBuscarReserva = f"SELECT * FROM Reserva WHERE id_usuario = '{cedula}' and fecha = '{fecha}'"
         cupos = self.c.select_in_database(consultaCupos)
         buscarReserva = self.c.select_in_database(consultaBuscarReserva)
-
+        print(buscarReserva)
         if cupos[0][0] < 30 and buscarReserva == []:
             self.c.insert_in_database(consultaCrearReserva)
-        elif cupos[0][0] >= 30 and buscarReserva == []:
-            raise LimiteCupos("Lo sentimos, no puede reservar porque se llego al limite de cupos")
         else:
             raise ReservaExistenteError(cedula, f"Lo sentimos, usted ya tiene una reserva para el {fecha} a las {hora}")
 
-    def cupos_disponibles_por_turno(self,hora):
-        fecha = datetime.strftime(datetime.now(),"%d-%m-%y")
+    def cupos_disponibles_por_turno(self,fecha,hora):
+
 
         consulta = F"SELECT COUNT (id_usuario) FROM Reserva WHERE fecha = '{fecha}' and hora = '{hora}'"
         cuposTotales = 30
         cuposLleno =  self.c.select_in_database(consulta)
+
         return cuposTotales-cuposLleno[0][0]
 
     def cupos_disponibles_por_dia(self,fecha):
@@ -150,6 +149,7 @@ class Gym:
         consulta = F"SELECT COUNT (id_usuario) FROM Reserva WHERE fecha = '{fecha}'"
         cuposTotales = 210
         cuposLleno =  self.c.select_in_database(consulta)
+
         return cuposTotales-cuposLleno[0][0]
 
     def reservas_usuario_dia_actual(self,cedula,fecha):
