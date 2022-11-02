@@ -1,7 +1,9 @@
 from app.Mundo.mundo import *
 from app.Mundo.errores import *
 from app.Vista.gui.ui_DialogoAceptarReserva import Ui_DialogAceptarReservas
+from app.Vista.gui.ui_DialogoCrearUsuario import Ui_DialogoCrearUsuario
 from app.Vista.gui.ui_DialogoRecuperarContrasenia import Ui_DialogRecuperarContrasenia
+
 from app.Vista.gui.ui_VentanaDeInicio import Ui_VentanaDeInicio
 from PySide2.QtWidgets import QMainWindow, QApplication, QDialog, QMessageBox, QInputDialog
 from PySide2 import QtGui, QtCore, QtWidgets
@@ -35,6 +37,7 @@ class VentanaLogin(QMainWindow):
         """
         self.ui.pbutton_ingresar.clicked.connect(self.iniciar_sesion)
         self.ui.pbutton_recuperarContrasenia.clicked.connect(self.abrir_dialogo_recuperar_contrasenia)
+        self.ui.pbutton_crearCuenta.clicked.connect(self.abrir_dialogo_crear_cuenta)
 
     def iniciar_sesion(self):
         capturaUsuario = self.ui.lineedit_usuario.text()
@@ -58,7 +61,6 @@ class VentanaLogin(QMainWindow):
         else:
             msg_box = QMessageBox(self)
             msg_box.setWindowTitle("Error de validación")
-            msg_box.setStyleSheet('background-color: None')
             msg_box.setIcon(QMessageBox.Critical)
             msg_box.setText("Debe ingresar todos los campos obligatorios.")
             msg_box.setStandardButtons(QMessageBox.Ok)
@@ -110,6 +112,63 @@ class VentanaLogin(QMainWindow):
                 msg_box.setText("Debe de ingresar todos los campos")
                 msg_box.setStandardButtons(QMessageBox.Ok)
                 msg_box.exec_()
+
+    def abrir_dialogo_crear_cuenta(self):
+        dialog = DialogoCrearUsuario(self)
+        resp = dialog.exec_()
+
+        if resp == QDialog.Accepted:
+            cedula = dialog.ui.lineedit_cedula_3.text()
+            nombre = dialog.ui.lineedit_nombre.text()
+            telefono = dialog.ui.lineedit_telefono.text()
+            correo = dialog.ui.lineedit_correo.text()
+            edad = dialog.ui.lineedit_edad.text()
+            genero = dialog.ui.comboBox_genero.currentText()
+            contrasenia = dialog.ui.lineedit_contrasenia.text()
+            confirmarContrasenia = dialog.ui.lineedit_verificar_contrasenia.text()
+            cargo = ""
+            if dialog.ui.checkBox_estudiante.isChecked():
+                cargo = "Estudiante"
+            elif dialog.ui.checkBox_egresado.isChecked():
+                cargo = "Egresado"
+
+            elif dialog.ui.checkBox_otro.isChecked():
+                cargo = "Otro"
+
+
+
+            try:
+                self.gym.crear_usuario(cedula, nombre, telefono , correo, edad, genero, contrasenia, confirmarContrasenia, cargo)
+
+            except ContraseniasDiferentes as err:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Error creando usuario.")
+                msg_box.setIcon(QMessageBox.Critical)
+                msg_box.setText(err.msg)
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+
+            except UsuarioExistenteError as err:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Error creando usuario.")
+                msg_box.setIcon(QMessageBox.Critical)
+                msg_box.setText(err.msg)
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+            else:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Operacion Exitosa")
+                msg_box.setIcon(QMessageBox.Information)
+                msg_box.setText("Usuario creado exitosamente")
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+
+
+
+
+
+
+
 
 class VentanaReservas(QMainWindow):
     def __init__(self, cedula, gym: Gym):
@@ -259,6 +318,8 @@ class VentanaTurnos(QMainWindow):
         self.ventanaTurno.pbutton_turno5.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno5)
         self.ventanaTurno.pbutton_turno6.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno6)
         self.ventanaTurno.pbutton_turno7.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno7)
+
+        self._configurar()
 
     def _configurar(self):
         cuposDisponiblesT1 = self.gym.cupos_disponibles_por_turno(self.fecha,'6:00')
@@ -483,7 +544,6 @@ class VentanaTurnos(QMainWindow):
         self.ventana = VentanaUsuario(self.cedula, self.gym)
         self.ventana.show()
 
-
 class VentanaOpiniones(QMainWindow):
     def __init__(self, cedula, gym : Gym):
         super().__init__()
@@ -494,6 +554,7 @@ class VentanaOpiniones(QMainWindow):
         self.ventanaOpiniones.tbutton_reserva.clicked.connect(self.abrir_reserva)
         self.ventanaOpiniones.tbutton_noticias.clicked.connect(self.abrir_noticias)
         self.ventanaOpiniones.tbutton_usuario.clicked.connect(self.abrir_usuario)
+        self.ventanaOpiniones.pushButton.clicked.connect(self.enviar_opinion)
 
 
     def abrir_reserva(self):
@@ -511,6 +572,25 @@ class VentanaOpiniones(QMainWindow):
         self.ventana = VentanaUsuario(self.cedula, self.gym)
         self.ventana.show()
 
+    def enviar_opinion(self):
+        """
+        fechaActual = datetime.strftime(datetime.now(), "%d-%m-%y")
+        #descripcion = self.ventanaOpiniones.textedit_descripcion.
+        asunto = self.ventanaOpiniones.lineedit_asunto.text()
+
+        if descripcion and asunto:
+
+            self.gym.enviar_opinion(self.cedula, descripcion, fechaActual)
+
+        else:
+            msg_box = QMessageBox(self)
+            msg_box.setWindowTitle("Error de validación")
+            msg_box.setIcon(QMessageBox.Critical)
+            msg_box.setText("Debe ingresar todos los campos obligatorios.")
+            msg_box.setStandardButtons(QMessageBox.Ok)
+            msg_box.exec_()
+        """
+        pass
 class VentanaUsuario(QMainWindow):
     def __init__(self, cedula, gym: Gym):
         super().__init__()
@@ -585,3 +665,43 @@ class DialogoRecuperarContrasenia(QDialog):
 
     def accept(self) -> None:
         super().accept()
+
+class DialogoCrearUsuario(QDialog):
+
+    def __init__(self, parent=None):
+        QDialog.__init__(self,parent)
+        self.ui = Ui_DialogoCrearUsuario()
+        self.ui.setupUi(self)
+        self.generos = ["Seleccionar", "Masculino", "Femenino", "Otro"]
+        self.ui.comboBox_genero.addItems(self.generos)
+
+
+    def accept(self) -> None:
+        cedula = self.ui.lineedit_cedula_3.text()
+        nombre = self.ui.lineedit_nombre.text()
+        telefono = self.ui.lineedit_telefono.text()
+        correo = self.ui.lineedit_correo.text()
+        edad = self.ui.lineedit_edad.text()
+        genero = self.ui.comboBox_genero.currentText()
+        contrasenia = self.ui.lineedit_contrasenia.text()
+        confirmarContrasenia = self.ui.lineedit_verificar_contrasenia.text()
+        cargo = ""
+        if self.ui.checkBox_estudiante.isChecked():
+            cargo = "Estudiante"
+        elif self.ui.checkBox_egresado.isChecked():
+            cargo = "Egresado"
+
+        elif self.ui.checkBox_otro.isChecked():
+            cargo = "Otro"
+
+        if (cedula and nombre and telefono and correo and edad and genero != "Seleccionar"
+                and contrasenia and confirmarContrasenia and cargo):
+            super().accept()
+        else:
+            msg_box = QMessageBox(self)
+            msg_box.setWindowTitle("Error creando cuenta ")
+            msg_box.setIcon(QMessageBox.Critical)
+            msg_box.setText("Debe de ingresar todos los campos")
+            msg_box.setStandardButtons(QMessageBox.Ok)
+            msg_box.exec_()
+

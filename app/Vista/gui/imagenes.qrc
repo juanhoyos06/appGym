@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="imagenes">
+    <file>imagenes/lista-de-verificacion.png</file>
+    <file>imagenes/genero.png</file>
+    <file>imagenes/age-group (1).png</file>
     <file>imagenes/bloquear.png</file>
     <file>imagenes/calendar-clock (1).png</file>
     <file>imagenes/calendar-clock.png</file>

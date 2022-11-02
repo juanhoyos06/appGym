@@ -318,34 +318,6 @@ image: url(:/imagenes/imagenes/sobre.png);</string>
      <string>Asunto</string>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit_descripcion">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>40</y>
-      <width>333</width>
-      <height>271</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>333</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="cursor" stdset="0">
-     <cursorShape>IBeamCursor</cursorShape>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border:None;</string>
-    </property>
-    <property name="documentTitle">
-     <string/>
-    </property>
-    <property name="placeholderText">
-     <string>Descripcion</string>
-    </property>
-   </widget>
    <widget class="Line" name="line_2">
     <property name="geometry">
      <rect>
@@ -400,15 +372,25 @@ QPushButton:hover{
      <string>Enviar</string>
     </property>
    </widget>
-   <zorder>plainTextEdit_descripcion</zorder>
-   <zorder>line</zorder>
-   <zorder>tbutton_usuario</zorder>
-   <zorder>tbutton_noticias</zorder>
-   <zorder>tbutton_reserva</zorder>
-   <zorder>tbutton_opinion</zorder>
-   <zorder>lineedit_asunto</zorder>
-   <zorder>line_2</zorder>
-   <zorder>pushButton</zorder>
+   <widget class="QTextEdit" name="textedit_descripcion">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>40</y>
+      <width>333</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>333</width>
+      <height>271</height>
+     </size>
+    </property>
+    <property name="placeholderText">
+     <string>Descripcion</string>
+    </property>
+   </widget>
   </widget>
   <zorder>frame_2</zorder>
   <zorder>frame</zorder>

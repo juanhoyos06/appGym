@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DialogRecuperarContrasenia</class>
+ <widget class="QDialog" name="DialogRecuperarContrasenia">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>330</width>
+    <height>401</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>330</width>
+    <height>401</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>330</width>
+    <height>401</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Recuperar Contraseña</string>
+  </property>
+  <widget class="QFrame" name="frame_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>61</y>
+     <width>333</width>
+     <height>401</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>333</width>
+     <height>401</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>333</width>
+     <height>401</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QFrame" name="frame_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>50</y>
+      <width>333</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>333</width>
+      <height>241</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>333</width>
+      <height>241</height>
+     </size>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="lineedit_correo_">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>8</y>
+       <width>191</width>
+       <height>36</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>191</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>302</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+     </property>
+     <property name="cursorPosition">
+      <number>0</number>
+     </property>
+     <property name="placeholderText">
+      <string>  Correo</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>60</y>
+       <width>31</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/imagenes/imagenes/id-insignia.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../imagenes/id-insignia.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>10</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/imagenes/imagenes/sobre (2).png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../imagenes/sobre (2).png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineedit_cedula">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>62</y>
+       <width>191</width>
+       <height>36</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>191</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>302</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+     </property>
+     <property name="placeholderText">
+      <string>  Cedula </string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineedit_contrasenia">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>116</y>
+       <width>191</width>
+       <height>36</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>191</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>302</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+     </property>
+     <property name="placeholderText">
+      <string>  Nueva Contraseña</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineedit_recuperarContrasenia">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>170</y>
+       <width>191</width>
+       <height>36</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>191</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>302</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+     </property>
+     <property name="placeholderText">
+      <string>  Confirmar contraseña</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>110</y>
+       <width>31</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/imagenes/imagenes/bloquear.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../imagenes/id-insignia.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>170</y>
+       <width>31</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/imagenes/imagenes/bloquear.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../imagenes/id-insignia.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QDialogButtonBox" name="buttonBox">
+    <property name="geometry">
+     <rect>
+      <x>-30</x>
+      <y>301</y>
+      <width>341</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color:  rgb(255, 0, 0);
+	border-radius: 10px;
+	font: 14pt &quot;Tw Cen MT Condensed&quot;;
+
+}
+
+QPushButton:hover{
+	
+	background-color: rgb(255, 208, 180);
+	border-radius: 10px;
+	font: 14pt &quot;Tw Cen MT Condensed&quot;;
+}</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="standardButtons">
+     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>333</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>333</width>
+     <height>51</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:  rgb(255, 0, 0);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0, 0, 0,0%);
+font: 16pt &quot;Tw Cen MT Condensed&quot;;
+border: None;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Recuperar contraseña&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>182</x>
+      <y>10</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/imagenes/imagenes/logo-udemedellin-footer.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../imagenes/logo-udemedellin-footer.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="imagenes.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>DialogRecuperarContrasenia</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>DialogRecuperarContrasenia</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

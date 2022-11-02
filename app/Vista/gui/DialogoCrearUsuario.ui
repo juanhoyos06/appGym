@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DialogoCrearUsuario</class>
+ <widget class="QDialog" name="DialogoCrearUsuario">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>333</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>333</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>333</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Crear usuario</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>-20</x>
+     <y>460</y>
+     <width>341</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	background-color:  rgb(255, 0, 0);
+	border-radius: 10px;
+	font: 14pt &quot;Tw Cen MT Condensed&quot;;
+
+}
+
+QPushButton:hover{
+	
+	background-color: rgb(255, 208, 180);
+	border-radius: 10px;
+	font: 14pt &quot;Tw Cen MT Condensed&quot;;
+}</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>333</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>333</width>
+     <height>61</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>333</width>
+     <height>61</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:  rgb(255, 0, 0);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>182</x>
+      <y>10</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/imagenes/imagenes/logo-udemedellin-footer.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../imagenes/logo-udemedellin-footer.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>121</width>
+      <height>41</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>121</width>
+      <height>41</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(0, 0, 0,0%);
+font: 20pt &quot;Tw Cen MT Condensed&quot;;
+border: None;</string>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Crear usuario&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>60</y>
+     <width>331</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-192</y>
+      <width>312</width>
+      <height>581</height>
+     </rect>
+    </property>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/imagenes/imagenes/id-insignia.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../imagenes/id-insignia.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineedit_cedula_3">
+       <property name="minimumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>302</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+       </property>
+       <property name="cursorPosition">
+        <number>0</number>
+       </property>
+       <property name="placeholderText">
+        <string>  Cédula</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>6</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_12">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/imagenes/imagenes/usuario.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../imagenes/usuario.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="lineedit_nombre">
+       <property name="minimumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>302</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+       </property>
+       <property name="placeholderText">
+        <string>  Nombre</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>6</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/imagenes/imagenes/circle-phone-flip.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../imagenes/circle-phone-flip.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="lineedit_telefono">
+       <property name="minimumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>302</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+       </property>
+       <property name="placeholderText">
+        <string>  Teléfono</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>6</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/imagenes/imagenes/sobre (2).png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../imagenes/sobre (2).png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="lineedit_correo">
+       <property name="minimumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>302</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+       </property>
+       <property name="placeholderText">
+        <string>  Correo</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <spacer name="verticalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>6</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_13">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/imagenes/imagenes/age-group (1).png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../imagenes/sobre (2).png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLineEdit" name="lineedit_edad">
+       <property name="minimumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>302</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+       </property>
+       <property name="placeholderText">
+        <string>  Edad</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <spacer name="verticalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>6</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="label_14">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/imagenes/imagenes/genero.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../imagenes/sobre (2).png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QComboBox" name="comboBox_genero">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1">
+      <spacer name="verticalSpacer_6">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>6</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="13" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/imagenes/imagenes/bloquear.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="13" column="1">
+      <widget class="QLineEdit" name="lineedit_contrasenia">
+       <property name="minimumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>302</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+       <property name="placeholderText">
+        <string>  Contraseña</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="1">
+      <spacer name="verticalSpacer_7">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>6</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="15" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/imagenes/imagenes/bloquear.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="1">
+      <widget class="QLineEdit" name="lineedit_verificar_contrasenia">
+       <property name="minimumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>302</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+       <property name="placeholderText">
+        <string>  Confirmar Contraseña</string>
+       </property>
+      </widget>
+     </item>
+     <item row="16" column="1">
+      <spacer name="verticalSpacer_8">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>6</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="17" column="1">
+      <widget class="QCheckBox" name="checkBox_estudiante">
+       <property name="text">
+        <string>Estudiante </string>
+       </property>
+      </widget>
+     </item>
+     <item row="18" column="1">
+      <widget class="QCheckBox" name="checkBox_egresado">
+       <property name="text">
+        <string>Egresado</string>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="1">
+      <widget class="QCheckBox" name="checkBox_otro">
+       <property name="text">
+        <string>Otro</string>
+       </property>
+      </widget>
+     </item>
+     <item row="20" column="1">
+      <spacer name="verticalSpacer_9">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>6</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="21" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/imagenes/imagenes/lista-de-verificacion.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="21" column="1">
+      <widget class="QLineEdit" name="lineedit_programa">
+       <property name="minimumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>302</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Normal</enum>
+       </property>
+       <property name="placeholderText">
+        <string>  Programa</string>
+       </property>
+      </widget>
+     </item>
+     <item row="22" column="1">
+      <spacer name="verticalSpacer_10">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>6</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="imagenes.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>DialogoCrearUsuario</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>DialogoCrearUsuario</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

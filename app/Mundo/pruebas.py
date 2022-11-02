@@ -1,5 +1,5 @@
 from datetime import date
-from datetime import datetime
+"""from datetime import datetime
 from datetime import timedelta
 import calendar
 from deep_translator import GoogleTranslator
@@ -25,3 +25,10 @@ nombreDiaSiguiente = traductor.translate(calendar.day_name[new_day.weekday()])
 fecha = datetime.now()
 print(fecha+timedelta(days=1))
 print(datetime.strftime(datetime.now(),"%d-%m-%y"))
+"""
+usuario = [1]
+
+if usuario:
+    print("hi")
+else:
+    print("Error")

@@ -45,7 +45,7 @@ class Gym:
         consulta = f"SELECT id_usuario FROM Usuario WHERE id_usuario = '{cedula}'"
         return self.c.select_in_database(consulta)
 
-    def crear_usuario(self,cedula, nombre, edad, sexo, correo, telefono, contrasenia, cargo):
+    def crear_usuario(self,cedula, nombre, telefono , correo, edad, sexo,  contrasenia, verificarContrasenia, cargo):
         """
         Se encarga de evaluar si un usuario esta o no dentro de la base de datos, si esta muestra un mensaje
         de error, sino, lo agrega
@@ -64,8 +64,11 @@ class Gym:
                          f"'{sexo}','{telefono}','{correo}','{contrasenia}', '{cargo}') "
 
 
-        if self.buscar_usuario(cedula) == []:
+        if self.buscar_usuario(cedula) == [] and contrasenia == verificarContrasenia:
             self.c.insert_in_database(consultaInsert)
+        elif self.buscar_usuario(cedula) == [] and contrasenia != verificarContrasenia:
+            raise ContraseniasDiferentes("Las contraseñas no coinciden")
+
         else:
             raise UsuarioExistenteError(cedula, f"Ya existe un usuario con la cedula{cedula}")
 
@@ -157,6 +160,12 @@ class Gym:
         consulta = F"SELECT id_usuario, hora FROM Reserva WHERE fecha = '{fecha}' AND id_usuario = '{cedula}' "
 
         return self.c.select_in_database(consulta)
+
+    def enviar_opinion(self, cedula, descripcion, fecha):
+
+        consultaOpinion  = f"INSERT INTO Opinion VALUES('{cedula}', '{descripcion}', '{fecha}')"
+        self.c.insert_in_database(consultaOpinion)
+
 
 class Estudiante(Usuario):
 

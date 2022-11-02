@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'VentanaOpinionesqSpIHa.ui'
+## Form generated from reading UI file 'VentanaOpinionesOJaAAN.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -11,6 +11,7 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+
 
 import app.Vista.gui.imagenes_rc
 
@@ -106,12 +107,6 @@ class Ui_VentanaOpiniones(object):
         self.lineedit_asunto.setObjectName(u"lineedit_asunto")
         self.lineedit_asunto.setGeometry(QRect(0, -1, 333, 41))
         self.lineedit_asunto.setStyleSheet(u"border:None;")
-        self.plainTextEdit_descripcion = QPlainTextEdit(self.frame_2)
-        self.plainTextEdit_descripcion.setObjectName(u"plainTextEdit_descripcion")
-        self.plainTextEdit_descripcion.setGeometry(QRect(0, 40, 333, 271))
-        self.plainTextEdit_descripcion.setMinimumSize(QSize(333, 0))
-        self.plainTextEdit_descripcion.viewport().setProperty("cursor", QCursor(Qt.IBeamCursor))
-        self.plainTextEdit_descripcion.setStyleSheet(u"border:None;")
         self.line_2 = QFrame(self.frame_2)
         self.line_2.setObjectName(u"line_2")
         self.line_2.setGeometry(QRect(0, 30, 331, 16))
@@ -141,15 +136,10 @@ class Ui_VentanaOpiniones(object):
 "	font: 14pt \"Tw Cen MT Condensed\";\n"
 "}\n"
 "")
-        self.plainTextEdit_descripcion.raise_()
-        self.line.raise_()
-        self.tbutton_usuario.raise_()
-        self.tbutton_noticias.raise_()
-        self.tbutton_reserva.raise_()
-        self.tbutton_opinion.raise_()
-        self.lineedit_asunto.raise_()
-        self.line_2.raise_()
-        self.pushButton.raise_()
+        self.textedit_descripcion = QTextEdit(self.frame_2)
+        self.textedit_descripcion.setObjectName(u"textedit_descripcion")
+        self.textedit_descripcion.setGeometry(QRect(0, 40, 333, 281))
+        self.textedit_descripcion.setMinimumSize(QSize(333, 271))
         self.frame_2.raise_()
         self.frame.raise_()
 
@@ -167,8 +157,7 @@ class Ui_VentanaOpiniones(object):
         self.tbutton_reserva.setText("")
         self.tbutton_opinion.setText("")
         self.lineedit_asunto.setPlaceholderText(QCoreApplication.translate("VentanaOpiniones", u"Asunto", None))
-        self.plainTextEdit_descripcion.setDocumentTitle("")
-        self.plainTextEdit_descripcion.setPlaceholderText(QCoreApplication.translate("VentanaOpiniones", u"Descripcion", None))
         self.pushButton.setText(QCoreApplication.translate("VentanaOpiniones", u"Enviar", None))
+        self.textedit_descripcion.setPlaceholderText(QCoreApplication.translate("VentanaOpiniones", u"Descripcion", None))
     # retranslateUi
 
