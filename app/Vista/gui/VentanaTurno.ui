@@ -55,7 +55,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>50</x>
       <y>10</y>
       <width>91</width>
       <height>41</height>
@@ -90,6 +90,36 @@ border: None;</string>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbutton_cerrar_sesion">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(0,0,0,0%);
+image: url(:/imagenes/imagenes/cerrar-sesion.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../imagenes/envelope.png</normaloff>../imagenes/envelope.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>40</width>
+      <height>30</height>
+     </size>
     </property>
    </widget>
   </widget>
@@ -325,12 +355,35 @@ image: url(:/imagenes/imagenes/envelope.png);</string>
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>-213</y>
+       <y>0</y>
        <width>312</width>
-       <height>572</height>
+       <height>600</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="pbutton_eliminarReserva">
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+	background-color:  rgb(255, 0, 0);
+	border-radius: 10px;
+	font: 14pt &quot;Tw Cen MT Condensed&quot;;
+
+}
+
+QPushButton:hover{
+	
+	background-color: rgb(255, 208, 180);
+	border-radius: 10px;
+	font: 14pt &quot;Tw Cen MT Condensed&quot;;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Eliminar mi reserva</string>
+        </property>
+       </widget>
+      </item>
       <item>
        <spacer name="verticalSpacer_7">
         <property name="orientation">

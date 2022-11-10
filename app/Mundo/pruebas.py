@@ -26,7 +26,7 @@ fecha = datetime.now()
 print(fecha+timedelta(days=1))
 print(datetime.strftime(datetime.now(),"%d-%m-%y"))
 """
-usuario = [1]
+usuario = []
 
 if usuario:
     print("hi")

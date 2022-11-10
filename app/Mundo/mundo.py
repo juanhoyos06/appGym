@@ -29,6 +29,8 @@ class Usuario:
         self.contrasenia: str = contrasenia
         self.cargo: str = cargo
         self.c = Conexion()
+
+
 class Gym:
 
     def __init__(self):
@@ -132,7 +134,7 @@ class Gym:
         consultaBuscarReserva = f"SELECT * FROM Reserva WHERE id_usuario = '{cedula}' and fecha = '{fecha}'"
         cupos = self.c.select_in_database(consultaCupos)
         buscarReserva = self.c.select_in_database(consultaBuscarReserva)
-        print(buscarReserva)
+
         if cupos[0][0] < 30 and buscarReserva == []:
             self.c.insert_in_database(consultaCrearReserva)
         else:
@@ -166,6 +168,20 @@ class Gym:
         consultaOpinion  = f"INSERT INTO Opinion VALUES('{cedula}', '{descripcion}', '{fecha}')"
         self.c.insert_in_database(consultaOpinion)
 
+    def eliminar_reserva(self,cedula,fecha):
+
+        consultaBuscarReserva = f"SELECT hora FROM Reserva WHERE fecha = '{fecha}' AND id_usuario ='{cedula}'"
+        hora = self.c.select_in_database(consultaBuscarReserva)
+        consultaEliminarReserva = f"DELETE FROM Reserva WHERE fecha = '{fecha}' AND hora = '{hora[0][0]}' AND id_usuario ='{cedula}'"
+
+        if consultaBuscarReserva:
+            self.c.delete_in_database(consultaEliminarReserva)
+        else:
+            raise ReservaNoExistenteError(cedula, f"Usted no tiene una reserva para eliminar")
+
+    def obtener_datos_usuario(self, cedula):
+        consulta = f"SELECT nombre, edad, sexo, telefono, correo  FROM Usuario WHERE id_usuario = '{cedula}'"
+        return self.c.select_in_database(consulta)
 
 class Estudiante(Usuario):
 

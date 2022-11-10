@@ -55,7 +55,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>50</x>
       <y>10</y>
       <width>91</width>
       <height>41</height>
@@ -90,6 +90,36 @@ border: None;</string>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbutton_cerrar_sesion">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(0,0,0,0%);
+image: url(:/imagenes/imagenes/cerrar-sesion.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../imagenes/envelope.png</normaloff>../imagenes/envelope.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>40</width>
+      <height>30</height>
+     </size>
     </property>
    </widget>
   </widget>
@@ -309,7 +339,7 @@ image: url(:/imagenes/imagenes/calendar-clock.png);</string>
       <x>0</x>
       <y>50</y>
       <width>333</width>
-      <height>241</height>
+      <height>281</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -318,11 +348,11 @@ image: url(:/imagenes/imagenes/calendar-clock.png);</string>
       <height>241</height>
      </size>
     </property>
-    <property name="maximumSize">
-     <size>
-      <width>333</width>
-      <height>241</height>
-     </size>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -330,219 +360,318 @@ image: url(:/imagenes/imagenes/calendar-clock.png);</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLineEdit" name="lineedit_nombre">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>8</y>
-       <width>191</width>
-       <height>36</height>
-      </rect>
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="leftMargin">
+      <number>9</number>
      </property>
-     <property name="minimumSize">
-      <size>
-       <width>191</width>
-       <height>36</height>
-      </size>
+     <property name="rightMargin">
+      <number>9</number>
      </property>
-     <property name="maximumSize">
-      <size>
-       <width>302</width>
-       <height>36</height>
-      </size>
+     <property name="bottomMargin">
+      <number>9</number>
      </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(223, 223, 223);
+     <property name="horizontalSpacing">
+      <number>25</number>
+     </property>
+     <property name="verticalSpacing">
+      <number>6</number>
+     </property>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/imagenes/imagenes/circle-phone-flip.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../imagenes/circle-phone-flip.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLabel" name="label_edad">
+       <property name="minimumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
 border-radius: 10px;</string>
-     </property>
-     <property name="cursorPosition">
-      <number>0</number>
-     </property>
-     <property name="placeholderText">
-      <string>  Nombre</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_4">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>62</y>
-       <width>31</width>
-       <height>32</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">image: url(:/imagenes/imagenes/circle-phone-flip.png);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../imagenes/circle-phone-flip.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_5">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>116</y>
-       <width>31</width>
-       <height>32</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">image: url(:/imagenes/imagenes/id-insignia.png);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../imagenes/id-insignia.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>170</y>
-       <width>31</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">image: url(:/imagenes/imagenes/sobre (2).png);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../imagenes/sobre (2).png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineedit_telefono">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>62</y>
-       <width>191</width>
-       <height>36</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>191</width>
-       <height>36</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>302</width>
-       <height>36</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(223, 223, 223);
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/imagenes/imagenes/sobre (2).png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../imagenes/sobre (2).png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_nombre">
+       <property name="minimumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
 border-radius: 10px;</string>
-     </property>
-     <property name="placeholderText">
-      <string>  Telefono</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineedit_cedula">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>116</y>
-       <width>191</width>
-       <height>36</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>191</width>
-       <height>36</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>302</width>
-       <height>36</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(223, 223, 223);
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>10</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/imagenes/imagenes/genero.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../imagenes/sobre (2).png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/imagenes/imagenes/usuario.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../imagenes/usuario.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>10</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="label_correo">
+       <property name="minimumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
 border-radius: 10px;</string>
-     </property>
-     <property name="placeholderText">
-      <string>  Cedula</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineedit_correo">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>170</y>
-       <width>191</width>
-       <height>36</height>
-      </rect>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>191</width>
-       <height>36</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>302</width>
-       <height>36</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(223, 223, 223);
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="minimumSize">
+        <size>
+         <width>31</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(:/imagenes/imagenes/age-group (1).png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../imagenes/id-insignia.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>10</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLabel" name="label_sexo">
+       <property name="minimumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
 border-radius: 10px;</string>
-     </property>
-     <property name="placeholderText">
-      <string>  Correo</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>8</y>
-       <width>31</width>
-       <height>32</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">image: url(:/imagenes/imagenes/usuario.png);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../imagenes/usuario.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="label_telefono">
+       <property name="minimumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>191</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <spacer name="verticalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>10</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </widget>
-   <widget class="QPushButton" name="pbutton_guardar">
+   <widget class="QPushButton" name="pbutton_cambiar_contrasenia">
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>300</y>
+      <y>340</y>
       <width>181</width>
       <height>23</height>
      </rect>
@@ -567,7 +696,7 @@ QPushButton:hover{
 </string>
     </property>
     <property name="text">
-     <string>Guardar</string>
+     <string>Cambiar contraseña</string>
     </property>
    </widget>
    <zorder>frame_3</zorder>
@@ -576,7 +705,7 @@ QPushButton:hover{
    <zorder>tbutton_opinion</zorder>
    <zorder>tbutton_usuario</zorder>
    <zorder>tbutton_reserva</zorder>
-   <zorder>pbutton_guardar</zorder>
+   <zorder>pbutton_cambiar_contrasenia</zorder>
   </widget>
   <zorder>frame_2</zorder>
   <zorder>frame</zorder>

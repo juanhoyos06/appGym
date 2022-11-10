@@ -76,3 +76,17 @@ class ReservaExistenteError(GymError):
 
         self.cedula = cedula
         self.msg = msg
+
+
+class ReservaNoExistenteError(GymError):
+    """
+    Representa una excepción que indica que el usuario ya tiene una reserva ese dia
+
+    Attributes:
+        cedula: un str que indica la cédula del socio que no existe
+        msg: un str que contiene el mensaje de error
+    """
+    def __init__(self, cedula: str, msg: str):
+
+        self.cedula = cedula
+        self.msg = msg

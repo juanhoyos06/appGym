@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'VentanaUsuariokYYSRD.ui'
+## Form generated from reading UI file 'VentanaUsuarioeHnCkl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -13,6 +13,7 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 import app.Vista.gui.imagenes_rc
+
 
 class Ui_VentanaUsuario(object):
     def setupUi(self, VentanaUsuario):
@@ -31,7 +32,7 @@ class Ui_VentanaUsuario(object):
         self.frame.setFrameShadow(QFrame.Raised)
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(10, 10, 91, 41))
+        self.label.setGeometry(QRect(50, 10, 91, 41))
         self.label.setStyleSheet(u"background-color: rgba(0, 0, 0,0%);\n"
 "font: 20pt \"Tw Cen MT Condensed\";\n"
 "border: None;")
@@ -41,6 +42,16 @@ class Ui_VentanaUsuario(object):
         self.label_2.setStyleSheet(u"image: url(:/imagenes/imagenes/logo-udemedellin-footer.png);")
         self.label_2.setPixmap(QPixmap(u"../imagenes/logo-udemedellin-footer.png"))
         self.label_2.setScaledContents(True)
+        self.pbutton_cerrar_sesion = QPushButton(self.frame)
+        self.pbutton_cerrar_sesion.setObjectName(u"pbutton_cerrar_sesion")
+        self.pbutton_cerrar_sesion.setGeometry(QRect(0, 10, 41, 41))
+        self.pbutton_cerrar_sesion.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pbutton_cerrar_sesion.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
+"image: url(:/imagenes/imagenes/cerrar-sesion.png);")
+        icon = QIcon()
+        icon.addFile(u"../imagenes/envelope.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pbutton_cerrar_sesion.setIcon(icon)
+        self.pbutton_cerrar_sesion.setIconSize(QSize(40, 30))
         self.frame_2 = QFrame(VentanaUsuario)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setGeometry(QRect(0, 61, 333, 439))
@@ -63,9 +74,9 @@ class Ui_VentanaUsuario(object):
         self.tbutton_noticias.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
 "image: url(:/imagenes/imagenes/forma.png);\n"
 "")
-        icon = QIcon()
-        icon.addFile(u"../imagenes/forma.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.tbutton_noticias.setIcon(icon)
+        icon1 = QIcon()
+        icon1.addFile(u"../imagenes/forma.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tbutton_noticias.setIcon(icon1)
         self.tbutton_noticias.setIconSize(QSize(40, 30))
         self.tbutton_opinion = QToolButton(self.frame_2)
         self.tbutton_opinion.setObjectName(u"tbutton_opinion")
@@ -75,9 +86,7 @@ class Ui_VentanaUsuario(object):
         self.tbutton_opinion.setCursor(QCursor(Qt.PointingHandCursor))
         self.tbutton_opinion.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
 "image: url(:/imagenes/imagenes/envelope.png);")
-        icon1 = QIcon()
-        icon1.addFile(u"../imagenes/envelope.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.tbutton_opinion.setIcon(icon1)
+        self.tbutton_opinion.setIcon(icon)
         self.tbutton_opinion.setIconSize(QSize(40, 30))
         self.tbutton_usuario = QToolButton(self.frame_2)
         self.tbutton_usuario.setObjectName(u"tbutton_usuario")
@@ -105,69 +114,128 @@ class Ui_VentanaUsuario(object):
         self.tbutton_reserva.setIconSize(QSize(40, 30))
         self.frame_3 = QFrame(self.frame_2)
         self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setGeometry(QRect(0, 50, 333, 241))
+        self.frame_3.setGeometry(QRect(0, 50, 333, 281))
         self.frame_3.setMinimumSize(QSize(333, 241))
-        self.frame_3.setMaximumSize(QSize(333, 241))
+        self.frame_3.setLayoutDirection(Qt.LeftToRight)
+        self.frame_3.setAutoFillBackground(False)
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
-        self.lineedit_nombre = QLineEdit(self.frame_3)
-        self.lineedit_nombre.setObjectName(u"lineedit_nombre")
-        self.lineedit_nombre.setGeometry(QRect(110, 8, 191, 36))
-        self.lineedit_nombre.setMinimumSize(QSize(191, 36))
-        self.lineedit_nombre.setMaximumSize(QSize(302, 36))
-        self.lineedit_nombre.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"
-"border-radius: 10px;")
-        self.lineedit_nombre.setCursorPosition(0)
+        self.gridLayout = QGridLayout(self.frame_3)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setHorizontalSpacing(25)
+        self.gridLayout.setVerticalSpacing(6)
+        self.gridLayout.setContentsMargins(9, -1, 9, 9)
         self.label_4 = QLabel(self.frame_3)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setGeometry(QRect(40, 62, 31, 32))
+        self.label_4.setMinimumSize(QSize(31, 32))
         self.label_4.setStyleSheet(u"image: url(:/imagenes/imagenes/circle-phone-flip.png);")
         self.label_4.setPixmap(QPixmap(u"../imagenes/circle-phone-flip.png"))
         self.label_4.setScaledContents(True)
-        self.label_5 = QLabel(self.frame_3)
-        self.label_5.setObjectName(u"label_5")
-        self.label_5.setGeometry(QRect(40, 116, 31, 32))
-        self.label_5.setStyleSheet(u"image: url(:/imagenes/imagenes/id-insignia.png);")
-        self.label_5.setPixmap(QPixmap(u"../imagenes/id-insignia.png"))
-        self.label_5.setScaledContents(True)
+
+        self.gridLayout.addWidget(self.label_4, 2, 0, 1, 1)
+
+        self.label_edad = QLabel(self.frame_3)
+        self.label_edad.setObjectName(u"label_edad")
+        self.label_edad.setMinimumSize(QSize(191, 36))
+        self.label_edad.setMaximumSize(QSize(191, 36))
+        self.label_edad.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"
+"border-radius: 10px;")
+
+        self.gridLayout.addWidget(self.label_edad, 5, 1, 1, 1)
+
         self.label_6 = QLabel(self.frame_3)
         self.label_6.setObjectName(u"label_6")
-        self.label_6.setGeometry(QRect(40, 170, 31, 31))
+        self.label_6.setMinimumSize(QSize(31, 32))
         self.label_6.setStyleSheet(u"image: url(:/imagenes/imagenes/sobre (2).png);")
         self.label_6.setPixmap(QPixmap(u"../imagenes/sobre (2).png"))
         self.label_6.setScaledContents(True)
-        self.lineedit_telefono = QLineEdit(self.frame_3)
-        self.lineedit_telefono.setObjectName(u"lineedit_telefono")
-        self.lineedit_telefono.setGeometry(QRect(110, 62, 191, 36))
-        self.lineedit_telefono.setMinimumSize(QSize(191, 36))
-        self.lineedit_telefono.setMaximumSize(QSize(302, 36))
-        self.lineedit_telefono.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"
+
+        self.gridLayout.addWidget(self.label_6, 7, 0, 1, 1)
+
+        self.label_nombre = QLabel(self.frame_3)
+        self.label_nombre.setObjectName(u"label_nombre")
+        self.label_nombre.setMinimumSize(QSize(191, 36))
+        self.label_nombre.setMaximumSize(QSize(191, 36))
+        self.label_nombre.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"
 "border-radius: 10px;")
-        self.lineedit_cedula = QLineEdit(self.frame_3)
-        self.lineedit_cedula.setObjectName(u"lineedit_cedula")
-        self.lineedit_cedula.setGeometry(QRect(110, 116, 191, 36))
-        self.lineedit_cedula.setMinimumSize(QSize(191, 36))
-        self.lineedit_cedula.setMaximumSize(QSize(302, 36))
-        self.lineedit_cedula.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"
-"border-radius: 10px;")
-        self.lineedit_correo = QLineEdit(self.frame_3)
-        self.lineedit_correo.setObjectName(u"lineedit_correo")
-        self.lineedit_correo.setGeometry(QRect(110, 170, 191, 36))
-        self.lineedit_correo.setMinimumSize(QSize(191, 36))
-        self.lineedit_correo.setMaximumSize(QSize(302, 36))
-        self.lineedit_correo.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"
-"border-radius: 10px;")
+
+        self.gridLayout.addWidget(self.label_nombre, 0, 1, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer, 1, 1, 1, 1)
+
+        self.label_8 = QLabel(self.frame_3)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setMinimumSize(QSize(31, 32))
+        self.label_8.setStyleSheet(u"image: url(:/imagenes/imagenes/genero.png);")
+        self.label_8.setPixmap(QPixmap(u"../imagenes/sobre (2).png"))
+        self.label_8.setScaledContents(True)
+
+        self.gridLayout.addWidget(self.label_8, 9, 0, 1, 1)
+
         self.label_7 = QLabel(self.frame_3)
         self.label_7.setObjectName(u"label_7")
-        self.label_7.setGeometry(QRect(40, 8, 31, 32))
+        self.label_7.setMinimumSize(QSize(31, 32))
         self.label_7.setStyleSheet(u"image: url(:/imagenes/imagenes/usuario.png);")
         self.label_7.setPixmap(QPixmap(u"../imagenes/usuario.png"))
         self.label_7.setScaledContents(True)
-        self.pbutton_guardar = QPushButton(self.frame_2)
-        self.pbutton_guardar.setObjectName(u"pbutton_guardar")
-        self.pbutton_guardar.setGeometry(QRect(70, 300, 181, 23))
-        self.pbutton_guardar.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pbutton_guardar.setStyleSheet(u"QPushButton{\n"
+
+        self.gridLayout.addWidget(self.label_7, 0, 0, 1, 1)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer_2, 3, 1, 1, 1)
+
+        self.label_correo = QLabel(self.frame_3)
+        self.label_correo.setObjectName(u"label_correo")
+        self.label_correo.setMinimumSize(QSize(191, 36))
+        self.label_correo.setMaximumSize(QSize(191, 36))
+        self.label_correo.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"
+"border-radius: 10px;")
+
+        self.gridLayout.addWidget(self.label_correo, 7, 1, 1, 1)
+
+        self.label_5 = QLabel(self.frame_3)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setMinimumSize(QSize(31, 32))
+        self.label_5.setStyleSheet(u"image: url(:/imagenes/imagenes/age-group (1).png);")
+        self.label_5.setPixmap(QPixmap(u"../imagenes/id-insignia.png"))
+        self.label_5.setScaledContents(True)
+
+        self.gridLayout.addWidget(self.label_5, 5, 0, 1, 1)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer_3, 6, 1, 1, 1)
+
+        self.label_sexo = QLabel(self.frame_3)
+        self.label_sexo.setObjectName(u"label_sexo")
+        self.label_sexo.setMinimumSize(QSize(191, 36))
+        self.label_sexo.setMaximumSize(QSize(191, 36))
+        self.label_sexo.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"
+"border-radius: 10px;")
+
+        self.gridLayout.addWidget(self.label_sexo, 9, 1, 1, 1)
+
+        self.label_telefono = QLabel(self.frame_3)
+        self.label_telefono.setObjectName(u"label_telefono")
+        self.label_telefono.setMinimumSize(QSize(191, 36))
+        self.label_telefono.setMaximumSize(QSize(191, 36))
+        self.label_telefono.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"
+"border-radius: 10px;")
+
+        self.gridLayout.addWidget(self.label_telefono, 2, 1, 1, 1)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer_4, 8, 1, 1, 1)
+
+        self.pbutton_cambiar_contrasenia = QPushButton(self.frame_2)
+        self.pbutton_cambiar_contrasenia.setObjectName(u"pbutton_cambiar_contrasenia")
+        self.pbutton_cambiar_contrasenia.setGeometry(QRect(70, 340, 181, 23))
+        self.pbutton_cambiar_contrasenia.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pbutton_cambiar_contrasenia.setStyleSheet(u"QPushButton{\n"
 "	background-color:  rgb(255, 0, 0);\n"
 "	border-radius: 10px;\n"
 "	font: 14pt \"Tw Cen MT Condensed\";\n"
@@ -187,7 +255,7 @@ class Ui_VentanaUsuario(object):
         self.tbutton_opinion.raise_()
         self.tbutton_usuario.raise_()
         self.tbutton_reserva.raise_()
-        self.pbutton_guardar.raise_()
+        self.pbutton_cambiar_contrasenia.raise_()
         self.frame_2.raise_()
         self.frame.raise_()
 
@@ -200,18 +268,21 @@ class Ui_VentanaUsuario(object):
         VentanaUsuario.setWindowTitle(QCoreApplication.translate("VentanaUsuario", u"Usuario", None))
         self.label.setText(QCoreApplication.translate("VentanaUsuario", u"<html><head/><body><p><span style=\" color:#ffffff;\">Usuario</span></p></body></html>", None))
         self.label_2.setText("")
+        self.pbutton_cerrar_sesion.setText("")
         self.tbutton_noticias.setText("")
         self.tbutton_opinion.setText("")
         self.tbutton_usuario.setText("")
         self.tbutton_reserva.setText("")
-        self.lineedit_nombre.setPlaceholderText(QCoreApplication.translate("VentanaUsuario", u"  Nombre", None))
         self.label_4.setText("")
-        self.label_5.setText("")
+        self.label_edad.setText("")
         self.label_6.setText("")
-        self.lineedit_telefono.setPlaceholderText(QCoreApplication.translate("VentanaUsuario", u"  Telefono", None))
-        self.lineedit_cedula.setPlaceholderText(QCoreApplication.translate("VentanaUsuario", u"  Cedula", None))
-        self.lineedit_correo.setPlaceholderText(QCoreApplication.translate("VentanaUsuario", u"  Correo", None))
+        self.label_nombre.setText("")
+        self.label_8.setText("")
         self.label_7.setText("")
-        self.pbutton_guardar.setText(QCoreApplication.translate("VentanaUsuario", u"Guardar", None))
+        self.label_correo.setText("")
+        self.label_5.setText("")
+        self.label_sexo.setText("")
+        self.label_telefono.setText("")
+        self.pbutton_cambiar_contrasenia.setText(QCoreApplication.translate("VentanaUsuario", u"Cambiar contrase\u00f1a", None))
     # retranslateUi
 

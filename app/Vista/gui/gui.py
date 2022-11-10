@@ -163,13 +163,6 @@ class VentanaLogin(QMainWindow):
                 msg_box.setStandardButtons(QMessageBox.Ok)
                 msg_box.exec_()
 
-
-
-
-
-
-
-
 class VentanaReservas(QMainWindow):
     def __init__(self, cedula, gym: Gym):
         super().__init__()
@@ -195,6 +188,11 @@ class VentanaReservas(QMainWindow):
         mesActual = traductor.translate(calendar.month_name[diaActual.month]) #nombre del mes  del dia actual
         mesSiguiente = traductor.translate(calendar.month_name[diaSiguiente.month]) #nombre del mes del dia siguiente
 
+        if nombreDia == "sábado" or nombreDia == "domingo": #Comprueba si los dias son diferentes al fin de semana
+            self.ventanaReservas.pbutton_reservadia.setEnabled(False)#Deshabilita los botones
+        if nombreDiaSiguiente == "sábado" or nombreDiaSiguiente == "domingo": #Comprueba si los dias son diferentes al fin de semana
+            self.ventanaReservas.pbutton_reservadiaSig.setEnabled(False) #Deshabilita los botones
+
         self.ventanaReservas.label_diaActual.setText(nombreDia) # Lleva el nombre del dia al label
         self.ventanaReservas.label_fechaActual.setText(str(diaActual.day)) # lleva el numero del dia al label
 
@@ -202,7 +200,7 @@ class VentanaReservas(QMainWindow):
         self.ventanaReservas.label_diaSiguiente.setText(nombreDiaSiguiente)# Lleva el nombre del dia siguiente al label
         self.ventanaReservas.label_fechaSiguiente.setText(str(diaSiguiente.day)) # lleva el numero del dia siguiente al label
 
-
+        self.ventanaReservas.pbutton_cerrar_sesion.clicked.connect(self.cerrar_sesion)
 
         self.ventanaReservas.label_mesSiguiente.setText(str(mesSiguiente))#Lleva el nombre del mes siguiente al label
 
@@ -280,6 +278,15 @@ class VentanaReservas(QMainWindow):
         self.ventanaO = VentanaOpiniones(self.cedula, self.gym)
         self.ventanaO.show()
 
+    def cerrar_sesion(self):
+        """
+        Metodo que cierra sesion y abre la ventana de login
+        :return:
+        """
+        self.hide()
+        self.ventanaO = VentanaLogin(self.gym)
+        self.ventanaO.show()
+
     def abrir_noticias(self):
         """
         Metodo que abre la ventana de noticias
@@ -318,6 +325,7 @@ class VentanaTurnos(QMainWindow):
         self.ventanaTurno.pbutton_turno5.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno5)
         self.ventanaTurno.pbutton_turno6.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno6)
         self.ventanaTurno.pbutton_turno7.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno7)
+        self.ventanaTurno.pbutton_eliminarReserva.clicked.connect(self.eliminar_reserva)
 
         self._configurar()
 
@@ -544,6 +552,27 @@ class VentanaTurnos(QMainWindow):
         self.ventana = VentanaUsuario(self.cedula, self.gym)
         self.ventana.show()
 
+    def eliminar_reserva(self):
+
+        try:
+            self.gym.eliminar_reserva(self.cedula, self.fecha)
+        except ReservaNoExistenteError as err:
+            msg_box = QMessageBox(self)
+            msg_box.setWindowTitle("Error eliminando reserva.")
+            msg_box.setIcon(QMessageBox.Critical)
+            msg_box.setText(err.msg)
+            msg_box.setStandardButtons(QMessageBox.Ok)
+            msg_box.exec_()
+        else:
+            msg_box = QMessageBox(self)
+            msg_box.setWindowTitle("Operacion Exitosa")
+            msg_box.setIcon(QMessageBox.Information)
+            msg_box.setText("Reserva eliminada exitosamente")
+            msg_box.setStandardButtons(QMessageBox.Ok)
+            msg_box.exec_()
+
+            self._configurar()
+
 class VentanaOpiniones(QMainWindow):
     def __init__(self, cedula, gym : Gym):
         super().__init__()
@@ -591,6 +620,7 @@ class VentanaOpiniones(QMainWindow):
             msg_box.exec_()
         """
         pass
+
 class VentanaUsuario(QMainWindow):
     def __init__(self, cedula, gym: Gym):
         super().__init__()
@@ -601,6 +631,18 @@ class VentanaUsuario(QMainWindow):
         self.ventanaUsuario.tbutton_opinion.clicked.connect(self.abrir_opinion)
         self.ventanaUsuario.tbutton_noticias.clicked.connect(self.abrir_noticias)
         self.ventanaUsuario.tbutton_reserva.clicked.connect(self.abrir_reserva)
+        self._configurar()
+
+    def _configurar(self):
+        datos = self.gym.obtener_datos_usuario(self.cedula)
+        self.ventanaUsuario.label_nombre.setText(str(datos[0][0]))
+        self.ventanaUsuario.label_telefono.setText(str(datos[0][3]))
+        self.ventanaUsuario.label_correo.setText(str(datos[0][4]))
+        self.ventanaUsuario.label_edad.setText(str(datos[0][1]))
+        if str(datos[0][2]) == "Otro":
+            datos[0][2] = "Indefinido"
+        self.ventanaUsuario.label_sexo.setText(str(datos[0][2]))
+
 
     def abrir_reserva(self):
         self.hide()
@@ -616,7 +658,6 @@ class VentanaUsuario(QMainWindow):
         self.hide()
         self.ventana = VentanaOpiniones(self.cedula, self.gym)
         self.ventana.show()
-
 
 class VentanaNoticias(QMainWindow):
     def __init__(self, cedula, gym:Gym):

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'VentanaNoticiaskJzZnT.ui'
+## Form generated from reading UI file 'VentanaNoticiasNFoNSB.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -32,7 +32,7 @@ class Ui_VentanaNoticias(object):
         self.frame.setFrameShadow(QFrame.Raised)
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(10, 10, 91, 41))
+        self.label.setGeometry(QRect(50, 10, 91, 41))
         self.label.setStyleSheet(u"background-color: rgba(0, 0, 0,0%);\n"
 "font: 20pt \"Tw Cen MT Condensed\";\n"
 "border: None;")
@@ -42,6 +42,16 @@ class Ui_VentanaNoticias(object):
         self.label_2.setStyleSheet(u"image: url(:/imagenes/imagenes/logo-udemedellin-footer.png);")
         self.label_2.setPixmap(QPixmap(u"../imagenes/logo-udemedellin-footer.png"))
         self.label_2.setScaledContents(True)
+        self.pbutton_cerrar_sesion = QPushButton(self.frame)
+        self.pbutton_cerrar_sesion.setObjectName(u"pbutton_cerrar_sesion")
+        self.pbutton_cerrar_sesion.setGeometry(QRect(0, 10, 41, 41))
+        self.pbutton_cerrar_sesion.setCursor(QCursor(Qt.PointingHandCursor))
+        self.pbutton_cerrar_sesion.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
+"image: url(:/imagenes/imagenes/cerrar-sesion.png);")
+        icon = QIcon()
+        icon.addFile(u"../imagenes/envelope.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pbutton_cerrar_sesion.setIcon(icon)
+        self.pbutton_cerrar_sesion.setIconSize(QSize(40, 30))
         self.frame_2 = QFrame(VentanaNoticias)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setGeometry(QRect(0, 61, 333, 439))
@@ -63,9 +73,9 @@ class Ui_VentanaNoticias(object):
 "image: url(:/imagenes/imagenes/form.png);\n"
 "border-radius: 20px;\n"
 "")
-        icon = QIcon()
-        icon.addFile(u"../imagenes/form.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.tbutton_noticias.setIcon(icon)
+        icon1 = QIcon()
+        icon1.addFile(u"../imagenes/form.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tbutton_noticias.setIcon(icon1)
         self.tbutton_noticias.setIconSize(QSize(40, 30))
         self.tbutton_usuario = QToolButton(self.frame_2)
         self.tbutton_usuario.setObjectName(u"tbutton_usuario")
@@ -74,9 +84,9 @@ class Ui_VentanaNoticias(object):
         self.tbutton_usuario.setMaximumSize(QSize(48, 30))
         self.tbutton_usuario.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
 "image: url(:/imagenes/imagenes/user.png);")
-        icon1 = QIcon()
-        icon1.addFile(u"../imagenes/user.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.tbutton_usuario.setIcon(icon1)
+        icon2 = QIcon()
+        icon2.addFile(u"../imagenes/user.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tbutton_usuario.setIcon(icon2)
         self.tbutton_usuario.setIconSize(QSize(40, 30))
         self.tbutton_reservas = QToolButton(self.frame_2)
         self.tbutton_reservas.setObjectName(u"tbutton_reservas")
@@ -85,9 +95,9 @@ class Ui_VentanaNoticias(object):
         self.tbutton_reservas.setMaximumSize(QSize(48, 30))
         self.tbutton_reservas.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
 "image: url(:/imagenes/imagenes/calendar-clock.png);")
-        icon2 = QIcon()
-        icon2.addFile(u"../imagenes/calendar-clock.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.tbutton_reservas.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u"../imagenes/calendar-clock.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.tbutton_reservas.setIcon(icon3)
         self.tbutton_reservas.setIconSize(QSize(40, 30))
         self.tbutton_opinion = QToolButton(self.frame_2)
         self.tbutton_opinion.setObjectName(u"tbutton_opinion")
@@ -96,9 +106,7 @@ class Ui_VentanaNoticias(object):
         self.tbutton_opinion.setMaximumSize(QSize(48, 30))
         self.tbutton_opinion.setStyleSheet(u"background-color:rgba(0,0,0,0%);\n"
 "image: url(:/imagenes/imagenes/envelope.png);")
-        icon3 = QIcon()
-        icon3.addFile(u"../imagenes/envelope.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.tbutton_opinion.setIcon(icon3)
+        self.tbutton_opinion.setIcon(icon)
         self.tbutton_opinion.setIconSize(QSize(40, 30))
         self.frame_2.raise_()
         self.frame.raise_()
@@ -112,6 +120,7 @@ class Ui_VentanaNoticias(object):
         VentanaNoticias.setWindowTitle(QCoreApplication.translate("VentanaNoticias", u"Noticias", None))
         self.label.setText(QCoreApplication.translate("VentanaNoticias", u"<html><head/><body><p><span style=\" color:#ffffff;\">Noticias</span></p></body></html>", None))
         self.label_2.setText("")
+        self.pbutton_cerrar_sesion.setText("")
         self.tbutton_noticias.setText("")
         self.tbutton_usuario.setText("")
         self.tbutton_reservas.setText("")
