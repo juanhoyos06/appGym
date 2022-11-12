@@ -99,7 +99,7 @@ class Gym:
         else:
             raise Usuario_o_ContraseniaIncorrecto(cedula, f"Usuario o contraseña incorrecto, porfavor intente nuevamente")
 
-    def recuperar_contrasenia(self, cedula, correo, contraseniaNueva, confirmarContrasenia):
+    def recuperar_contrasenia(self, cedula, contraseniaNueva, confirmarContrasenia):
         """
         Metodo para la recuperacion de la contraseña del usuario, evalua que el usuario si exista y si la contraseña
         nueva es igual a la confirmacion de la contraseña
@@ -174,7 +174,7 @@ class Gym:
         hora = self.c.select_in_database(consultaBuscarReserva)
         consultaEliminarReserva = f"DELETE FROM Reserva WHERE fecha = '{fecha}' AND hora = '{hora[0][0]}' AND id_usuario ='{cedula}'"
 
-        if consultaBuscarReserva:
+        if hora:
             self.c.delete_in_database(consultaEliminarReserva)
         else:
             raise ReservaNoExistenteError(cedula, f"Usted no tiene una reserva para eliminar")
@@ -182,6 +182,21 @@ class Gym:
     def obtener_datos_usuario(self, cedula):
         consulta = f"SELECT nombre, edad, sexo, telefono, correo  FROM Usuario WHERE id_usuario = '{cedula}'"
         return self.c.select_in_database(consulta)
+
+    def seleccionar_facultad(self):
+        consulta = f"SELECT nombre FROM Programa"
+        return self.c.select_in_database(consulta)
+
+    def relacionar_usuario_programa(self, cedula, nomPrograma):
+        consultaSelect = f"SELECT id_programa FROM Programa WHERE nombre = '{nomPrograma}'"
+        idPrograma = self.c.select_in_database(consultaSelect)
+        consultaInsert = f"INSERT INTO ProgramasUsuario VALUES ('{cedula}','{idPrograma[0][0]}')"
+        self.c.insert_in_database(consultaInsert)
+
+
+
+
+
 
 class Estudiante(Usuario):
 

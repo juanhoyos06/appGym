@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'DialogoCrearUsuarioHXNNtC.ui'
+## Form generated from reading UI file 'DialogoCrearUsuarioRKGzuM.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -11,7 +11,6 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-
 
 import app.Vista.gui.imagenes_rc
 
@@ -70,7 +69,7 @@ class Ui_DialogoCrearUsuario(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, -192, 312, 581))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, -188, 312, 577))
         self.formLayout = QFormLayout(self.scrollAreaWidgetContents)
         self.formLayout.setObjectName(u"formLayout")
         self.label_8 = QLabel(self.scrollAreaWidgetContents)
@@ -268,24 +267,24 @@ class Ui_DialogoCrearUsuario(object):
 
         self.label_7 = QLabel(self.scrollAreaWidgetContents)
         self.label_7.setObjectName(u"label_7")
+        self.label_7.setEnabled(False)
         self.label_7.setMinimumSize(QSize(31, 32))
         self.label_7.setStyleSheet(u"image: url(:/imagenes/imagenes/lista-de-verificacion.png);")
 
         self.formLayout.setWidget(21, QFormLayout.LabelRole, self.label_7)
 
-        self.lineedit_programa = QLineEdit(self.scrollAreaWidgetContents)
-        self.lineedit_programa.setObjectName(u"lineedit_programa")
-        self.lineedit_programa.setMinimumSize(QSize(191, 36))
-        self.lineedit_programa.setMaximumSize(QSize(302, 36))
-        self.lineedit_programa.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"
-"border-radius: 10px;")
-        self.lineedit_programa.setEchoMode(QLineEdit.Normal)
-
-        self.formLayout.setWidget(21, QFormLayout.FieldRole, self.lineedit_programa)
-
         self.verticalSpacer_10 = QSpacerItem(20, 6, QSizePolicy.Minimum, QSizePolicy.Fixed)
 
         self.formLayout.setItem(22, QFormLayout.FieldRole, self.verticalSpacer_10)
+
+        self.comboBox_facultades = QComboBox(self.scrollAreaWidgetContents)
+        self.comboBox_facultades.setObjectName(u"comboBox_facultades")
+        self.comboBox_facultades.setEnabled(True)
+        self.comboBox_facultades.setMinimumSize(QSize(0, 32))
+        self.comboBox_facultades.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"
+"border-radius: 10px;")
+
+        self.formLayout.setWidget(21, QFormLayout.FieldRole, self.comboBox_facultades)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
@@ -319,6 +318,5 @@ class Ui_DialogoCrearUsuario(object):
         self.checkBox_egresado.setText(QCoreApplication.translate("DialogoCrearUsuario", u"Egresado", None))
         self.checkBox_otro.setText(QCoreApplication.translate("DialogoCrearUsuario", u"Otro", None))
         self.label_7.setText("")
-        self.lineedit_programa.setPlaceholderText(QCoreApplication.translate("DialogoCrearUsuario", u"  Programa", None))
     # retranslateUi
 

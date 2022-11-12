@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DialogRecuperarContrasenia</class>
- <widget class="QDialog" name="DialogRecuperarContrasenia">
+ <class>DialogCambiarContrasenia</class>
+ <widget class="QDialog" name="DialogCambiarContrasenia">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Recuperar Contraseña</string>
+   <string>Cambiar Contraseña</string>
   </property>
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
@@ -319,7 +319,7 @@ font: 16pt &quot;Tw Cen MT Condensed&quot;;
 border: None;</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Recuperar contraseña&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Cambiar contraseña&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -353,7 +353,7 @@ border: None;</string>
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>DialogRecuperarContrasenia</receiver>
+   <receiver>DialogCambiarContrasenia</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -369,7 +369,7 @@ border: None;</string>
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>DialogRecuperarContrasenia</receiver>
+   <receiver>DialogCambiarContrasenia</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

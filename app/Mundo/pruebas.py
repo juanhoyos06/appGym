@@ -1,3 +1,5 @@
+from app.Mundo import conexion as c
+
 from datetime import date
 """from datetime import datetime
 from datetime import timedelta
@@ -26,9 +28,18 @@ fecha = datetime.now()
 print(fecha+timedelta(days=1))
 print(datetime.strftime(datetime.now(),"%d-%m-%y"))
 """
+"""
 usuario = []
 
 if usuario:
     print("hi")
 else:
     print("Error")
+    """
+conexion = c.Conexion()
+consulta = f"SELECT nombre FROM Programa"
+facultades = c.Conexion.select_in_database(conexion,consulta)
+#print(len(facultades))
+
+for i in facultades:
+    print(str(i[0]))

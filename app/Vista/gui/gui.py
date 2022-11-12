@@ -1,6 +1,7 @@
 from app.Mundo.mundo import *
 from app.Mundo.errores import *
 from app.Vista.gui.ui_DialogoAceptarReserva import Ui_DialogAceptarReservas
+from app.Vista.gui.ui_DialogoCambiarContrasenia import Ui_DialogCambiarContrasenia
 from app.Vista.gui.ui_DialogoCrearUsuario import Ui_DialogoCrearUsuario
 from app.Vista.gui.ui_DialogoRecuperarContrasenia import Ui_DialogRecuperarContrasenia
 
@@ -71,16 +72,15 @@ class VentanaLogin(QMainWindow):
         resp = dialog.exec_()
 
         if resp == QDialog.Accepted:
-            capturaCorreo = dialog.ui.lineedit_correo_.text()
             capturaCedula = dialog.ui.lineedit_cedula.text()
             capturaContrasenia = dialog.ui.lineedit_contrasenia.text()
             capturaConfirmarContrasenia = dialog.ui.lineedit_recuperarContrasenia.text()
 
-            if capturaCorreo != "" and capturaCedula != "" and capturaContrasenia != "" \
-                and capturaConfirmarContrasenia != "":
+            if capturaCedula and capturaContrasenia  \
+                and capturaConfirmarContrasenia:
 
                 try:
-                    self.gym.recuperar_contrasenia(capturaCedula, capturaCorreo, capturaContrasenia, capturaConfirmarContrasenia)
+                    self.gym.recuperar_contrasenia(capturaCedula,capturaContrasenia, capturaConfirmarContrasenia)
 
                 except ContraseniasDiferentes as err:
                     msg_box = QMessageBox(self)
@@ -124,11 +124,13 @@ class VentanaLogin(QMainWindow):
             correo = dialog.ui.lineedit_correo.text()
             edad = dialog.ui.lineedit_edad.text()
             genero = dialog.ui.comboBox_genero.currentText()
+            programa = dialog.ui.comboBox_facultades.currentText()
             contrasenia = dialog.ui.lineedit_contrasenia.text()
             confirmarContrasenia = dialog.ui.lineedit_verificar_contrasenia.text()
             cargo = ""
             if dialog.ui.checkBox_estudiante.isChecked():
                 cargo = "Estudiante"
+
             elif dialog.ui.checkBox_egresado.isChecked():
                 cargo = "Egresado"
 
@@ -162,6 +164,8 @@ class VentanaLogin(QMainWindow):
                 msg_box.setText("Usuario creado exitosamente")
                 msg_box.setStandardButtons(QMessageBox.Ok)
                 msg_box.exec_()
+                if programa != "NO APLICA":
+                    dialog.gym.relacionar_usuario_programa(cedula, programa)
 
 class VentanaReservas(QMainWindow):
     def __init__(self, cedula, gym: Gym):
@@ -326,6 +330,7 @@ class VentanaTurnos(QMainWindow):
         self.ventanaTurno.pbutton_turno6.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno6)
         self.ventanaTurno.pbutton_turno7.clicked.connect(self.abrir_dialogo_aceptar_reserva_turno7)
         self.ventanaTurno.pbutton_eliminarReserva.clicked.connect(self.eliminar_reserva)
+        self.ventanaTurno.pbutton_cerrar_sesion.clicked.connect(self.cerrar_sesion)
 
         self._configurar()
 
@@ -369,6 +374,14 @@ class VentanaTurnos(QMainWindow):
         self.ventanaTurno.pbutton_turno6.setText(f"4:00PM - 6:00PM                      {cuposDisponiblesT6} Cupos Disponibles")
         self.ventanaTurno.pbutton_turno7.setText(f"6:00PM - 8:00PM                      {cuposDisponiblesT7} Cupos Disponibles")
 
+    def cerrar_sesion(self):
+        """
+        Metodo que cierra sesion y abre la ventana de login
+        :return:
+        """
+        self.hide()
+        self.ventanaO = VentanaLogin(self.gym)
+        self.ventanaO.show()
 
     def abrir_dialogo_aceptar_reserva_turno1(self):
         dialog = DialogoAceptarReserva(self)
@@ -584,6 +597,16 @@ class VentanaOpiniones(QMainWindow):
         self.ventanaOpiniones.tbutton_noticias.clicked.connect(self.abrir_noticias)
         self.ventanaOpiniones.tbutton_usuario.clicked.connect(self.abrir_usuario)
         self.ventanaOpiniones.pushButton.clicked.connect(self.enviar_opinion)
+        self.ventanaOpiniones.pbutton_cerrar_sesion.clicked.connect(self.cerrar_sesion)
+
+    def cerrar_sesion(self):
+        """
+        Metodo que cierra sesion y abre la ventana de login
+        :return:
+        """
+        self.hide()
+        self.ventanaO = VentanaLogin(self.gym)
+        self.ventanaO.show()
 
 
     def abrir_reserva(self):
@@ -631,6 +654,8 @@ class VentanaUsuario(QMainWindow):
         self.ventanaUsuario.tbutton_opinion.clicked.connect(self.abrir_opinion)
         self.ventanaUsuario.tbutton_noticias.clicked.connect(self.abrir_noticias)
         self.ventanaUsuario.tbutton_reserva.clicked.connect(self.abrir_reserva)
+        self.ventanaUsuario.pbutton_cerrar_sesion.clicked.connect(self.cerrar_sesion)
+        self.ventanaUsuario.pbutton_cambiar_contrasenia.clicked.connect(self.abrir_dialogo_cambiar_contrasenia)
         self._configurar()
 
     def _configurar(self):
@@ -643,6 +668,60 @@ class VentanaUsuario(QMainWindow):
             datos[0][2] = "Indefinido"
         self.ventanaUsuario.label_sexo.setText(str(datos[0][2]))
 
+    def abrir_dialogo_cambiar_contrasenia(self):
+        dialog = DialogoCambiarContrasenia(self)
+        resp = dialog.exec_()
+
+        if resp == QDialog.Accepted:
+            capturaCedula = dialog.ui.lineedit_cedula.text()
+            capturaContrasenia = dialog.ui.lineedit_contrasenia.text()
+            capturaConfirmarContrasenia = dialog.ui.lineedit_recuperarContrasenia.text()
+
+            if capturaCedula and capturaContrasenia  \
+                and capturaConfirmarContrasenia:
+
+                try:
+                    self.gym.recuperar_contrasenia(capturaCedula,capturaContrasenia, capturaConfirmarContrasenia)
+
+                except ContraseniasDiferentes as err:
+                    msg_box = QMessageBox(self)
+                    msg_box.setWindowTitle("Error recuperando contraseña.")
+                    msg_box.setIcon(QMessageBox.Critical)
+                    msg_box.setText(err.msg)
+                    msg_box.setStandardButtons(QMessageBox.Ok)
+                    msg_box.exec_()
+
+                except UsuarioNoExistenteError as err:
+                    msg_box = QMessageBox(self)
+                    msg_box.setWindowTitle("Error recuperando contraseña.")
+                    msg_box.setIcon(QMessageBox.Critical)
+                    msg_box.setText(err.msg)
+                    msg_box.setStandardButtons(QMessageBox.Ok)
+                    msg_box.exec_()
+                else:
+                    msg_box = QMessageBox(self)
+                    msg_box.setWindowTitle("Operacion Exitosa")
+                    msg_box.setIcon(QMessageBox.Information)
+                    msg_box.setText("Contraseña recuperada exitosamente correctamente.")
+                    msg_box.setStandardButtons(QMessageBox.Ok)
+                    msg_box.exec_()
+
+            else:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Error recuperando contraseña")
+                msg_box.setIcon(QMessageBox.Critical)
+                msg_box.setText("Debe de ingresar todos los campos")
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+
+    def cerrar_sesion(self):
+        """
+        Metodo que cierra sesion y abre la ventana de login
+        :return:
+        """
+        self.hide()
+        self.ventanaO = VentanaLogin(self.gym)
+        self.ventanaO.show()
 
     def abrir_reserva(self):
         self.hide()
@@ -669,6 +748,16 @@ class VentanaNoticias(QMainWindow):
         self.ventanaNoticias.tbutton_opinion.clicked.connect(self.abrir_opinion)
         self.ventanaNoticias.tbutton_usuario.clicked.connect(self.abrir_usuario)
         self.ventanaNoticias.tbutton_reservas.clicked.connect(self.abrir_reserva)
+        self.ventanaNoticias.pbutton_cerrar_sesion.clicked.connect(self.cerrar_sesion)
+
+    def cerrar_sesion(self):
+        """
+        Metodo que cierra sesion y abre la ventana de login
+        :return:
+        """
+        self.hide()
+        self.ventanaO = VentanaLogin(self.gym)
+        self.ventanaO.show()
 
     def abrir_reserva(self):
         self.hide()
@@ -712,9 +801,18 @@ class DialogoCrearUsuario(QDialog):
     def __init__(self, parent=None):
         QDialog.__init__(self,parent)
         self.ui = Ui_DialogoCrearUsuario()
+        self.gym = Gym()
         self.ui.setupUi(self)
         self.generos = ["Seleccionar", "Masculino", "Femenino", "Otro"]
         self.ui.comboBox_genero.addItems(self.generos)
+        self.facultades = ["NO APLICA"]
+        facultades = self.gym.seleccionar_facultad()
+        for i in facultades:
+            self.facultades.append(str(i[0]))
+
+        self.ui.comboBox_facultades.addItems(self.facultades)
+
+
 
 
     def accept(self) -> None:
@@ -729,6 +827,7 @@ class DialogoCrearUsuario(QDialog):
         cargo = ""
         if self.ui.checkBox_estudiante.isChecked():
             cargo = "Estudiante"
+
         elif self.ui.checkBox_egresado.isChecked():
             cargo = "Egresado"
 
@@ -746,3 +845,13 @@ class DialogoCrearUsuario(QDialog):
             msg_box.setStandardButtons(QMessageBox.Ok)
             msg_box.exec_()
 
+class DialogoCambiarContrasenia(QDialog):
+
+    def __init__(self, parent=None):
+        QDialog.__init__(self,parent)
+        self.ui = Ui_DialogCambiarContrasenia()
+        self.ui.setupUi(self)
+
+
+    def accept(self) -> None:
+        super().accept()

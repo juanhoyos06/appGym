@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'DialogoCambiarContraseniaLwaKzc.ui'
+## Form generated from reading UI file 'DialogoCambiarContraseniagHlkDg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -14,14 +14,14 @@ from PySide2.QtWidgets import *
 
 import app.Vista.gui.imagenes_rc
 
-class Ui_DialogRecuperarContrasenia(object):
-    def setupUi(self, DialogRecuperarContrasenia):
-        if not DialogRecuperarContrasenia.objectName():
-            DialogRecuperarContrasenia.setObjectName(u"DialogRecuperarContrasenia")
-        DialogRecuperarContrasenia.resize(330, 328)
-        DialogRecuperarContrasenia.setMinimumSize(QSize(330, 328))
-        DialogRecuperarContrasenia.setMaximumSize(QSize(330, 328))
-        self.frame_2 = QFrame(DialogRecuperarContrasenia)
+class Ui_DialogCambiarContrasenia(object):
+    def setupUi(self, DialogCambiarContrasenia):
+        if not DialogCambiarContrasenia.objectName():
+            DialogCambiarContrasenia.setObjectName(u"DialogCambiarContrasenia")
+        DialogCambiarContrasenia.resize(330, 328)
+        DialogCambiarContrasenia.setMinimumSize(QSize(330, 328))
+        DialogCambiarContrasenia.setMaximumSize(QSize(330, 328))
+        self.frame_2 = QFrame(DialogCambiarContrasenia)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setGeometry(QRect(0, 61, 333, 401))
         self.frame_2.setMinimumSize(QSize(333, 401))
@@ -97,7 +97,7 @@ class Ui_DialogRecuperarContrasenia(object):
         self.buttonBox.setOrientation(Qt.Horizontal)
         self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Save)
         self.buttonBox.setCenterButtons(True)
-        self.frame = QFrame(DialogRecuperarContrasenia)
+        self.frame = QFrame(DialogCambiarContrasenia)
         self.frame.setObjectName(u"frame")
         self.frame.setGeometry(QRect(0, 0, 333, 61))
         self.frame.setMinimumSize(QSize(333, 51))
@@ -117,22 +117,22 @@ class Ui_DialogRecuperarContrasenia(object):
         self.label_2.setPixmap(QPixmap(u"../imagenes/logo-udemedellin-footer.png"))
         self.label_2.setScaledContents(True)
 
-        self.retranslateUi(DialogRecuperarContrasenia)
-        self.buttonBox.accepted.connect(DialogRecuperarContrasenia.accept)
-        self.buttonBox.rejected.connect(DialogRecuperarContrasenia.reject)
+        self.retranslateUi(DialogCambiarContrasenia)
+        self.buttonBox.accepted.connect(DialogCambiarContrasenia.accept)
+        self.buttonBox.rejected.connect(DialogCambiarContrasenia.reject)
 
-        QMetaObject.connectSlotsByName(DialogRecuperarContrasenia)
+        QMetaObject.connectSlotsByName(DialogCambiarContrasenia)
     # setupUi
 
-    def retranslateUi(self, DialogRecuperarContrasenia):
-        DialogRecuperarContrasenia.setWindowTitle(QCoreApplication.translate("DialogRecuperarContrasenia", u"Recuperar Contrase\u00f1a", None))
+    def retranslateUi(self, DialogCambiarContrasenia):
+        DialogCambiarContrasenia.setWindowTitle(QCoreApplication.translate("DialogCambiarContrasenia", u"Cambiar Contrase\u00f1a", None))
         self.label_5.setText("")
-        self.lineedit_cedula.setPlaceholderText(QCoreApplication.translate("DialogRecuperarContrasenia", u"  Cedula ", None))
-        self.lineedit_contrasenia.setPlaceholderText(QCoreApplication.translate("DialogRecuperarContrasenia", u"  Nueva Contrase\u00f1a", None))
-        self.lineedit_recuperarContrasenia.setPlaceholderText(QCoreApplication.translate("DialogRecuperarContrasenia", u"  Confirmar contrase\u00f1a", None))
+        self.lineedit_cedula.setPlaceholderText(QCoreApplication.translate("DialogCambiarContrasenia", u"  Cedula ", None))
+        self.lineedit_contrasenia.setPlaceholderText(QCoreApplication.translate("DialogCambiarContrasenia", u"  Nueva Contrase\u00f1a", None))
+        self.lineedit_recuperarContrasenia.setPlaceholderText(QCoreApplication.translate("DialogCambiarContrasenia", u"  Confirmar contrase\u00f1a", None))
         self.label_7.setText("")
         self.label_8.setText("")
-        self.label.setText(QCoreApplication.translate("DialogRecuperarContrasenia", u"<html><head/><body><p><span style=\" color:#ffffff;\">Recuperar contrase\u00f1a</span></p></body></html>", None))
+        self.label.setText(QCoreApplication.translate("DialogCambiarContrasenia", u"<html><head/><body><p><span style=\" color:#ffffff;\">Cambiar contrase\u00f1a</span></p></body></html>", None))
         self.label_2.setText("")
     # retranslateUi
 

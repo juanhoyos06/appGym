@@ -161,9 +161,9 @@ border: None;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-192</y>
+      <y>-188</y>
       <width>312</width>
-      <height>581</height>
+      <height>577</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -682,6 +682,9 @@ border-radius: 10px;</string>
      </item>
      <item row="21" column="0">
       <widget class="QLabel" name="label_7">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="minimumSize">
         <size>
          <width>31</width>
@@ -693,32 +696,6 @@ border-radius: 10px;</string>
        </property>
        <property name="text">
         <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="21" column="1">
-      <widget class="QLineEdit" name="lineedit_programa">
-       <property name="minimumSize">
-        <size>
-         <width>191</width>
-         <height>36</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>302</width>
-         <height>36</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(223, 223, 223);
-border-radius: 10px;</string>
-       </property>
-       <property name="echoMode">
-        <enum>QLineEdit::Normal</enum>
-       </property>
-       <property name="placeholderText">
-        <string>  Programa</string>
        </property>
       </widget>
      </item>
@@ -737,6 +714,23 @@ border-radius: 10px;</string>
         </size>
        </property>
       </spacer>
+     </item>
+     <item row="21" column="1">
+      <widget class="QComboBox" name="comboBox_facultades">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(223, 223, 223);
+border-radius: 10px;</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
