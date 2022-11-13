@@ -7,7 +7,7 @@
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-
+from PySide2 import QtGui
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
@@ -97,6 +97,7 @@ class Ui_VentanaDeInicio(object):
         self.pbutton_ingresar.setCheckable(False)
         self.lineedit_usuario = QLineEdit(self.frame)
         self.lineedit_usuario.setObjectName(u"lineedit_usuario")
+        self.lineedit_usuario.setValidator(QtGui.QIntValidator())
         self.lineedit_usuario.setGeometry(QRect(50, 210, 241, 31))
         self.lineedit_usuario.setMinimumSize(QSize(241, 31))
         self.lineedit_usuario.setMaximumSize(QSize(241, 31))

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'DialogoCambiarContraseniagHlkDg.ui'
+## Form generated from reading UI file 'DialogoCambiarContraseniaHVlpNQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-
+from PySide2 import QtGui
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
@@ -44,11 +44,13 @@ class Ui_DialogCambiarContrasenia(object):
         self.label_5.setScaledContents(True)
         self.lineedit_cedula = QLineEdit(self.frame_3)
         self.lineedit_cedula.setObjectName(u"lineedit_cedula")
+        self.lineedit_cedula.setValidator(QtGui.QIntValidator())
         self.lineedit_cedula.setGeometry(QRect(110, 22, 191, 36))
         self.lineedit_cedula.setMinimumSize(QSize(191, 36))
         self.lineedit_cedula.setMaximumSize(QSize(302, 36))
         self.lineedit_cedula.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"
 "border-radius: 10px;")
+        self.lineedit_cedula.setInputMethodHints(Qt.ImhDigitsOnly)
         self.lineedit_contrasenia = QLineEdit(self.frame_3)
         self.lineedit_contrasenia.setObjectName(u"lineedit_contrasenia")
         self.lineedit_contrasenia.setGeometry(QRect(110, 76, 191, 36))

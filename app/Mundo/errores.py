@@ -52,6 +52,31 @@ class ContraseniasDiferentes(GymError):
     def __init__(self, msg: str):
         self.msg = msg
 
+class CorreoInvalido(GymError):
+    """
+        Representa una excepción que indica que el correo no es valido, no contiene '@'
+
+        Attributes:
+
+            msg: un str que contiene el mensaje de error
+        """
+
+    def __init__(self, msg: str):
+        self.msg = msg
+
+class ErrorMultiple(GymError):
+    """
+        Representa una excepción que indica que el correo no es valido, no contiene '@'
+        y las contraseñas no coinciden
+
+        Attributes:
+
+            msg: un str que contiene el mensaje de error
+        """
+
+    def __init__(self, msg: str):
+        self.msg = msg
+
 class LimiteCupos(GymError):
     """
         Representa una excepción que indica que ya no hay cupos para reservar

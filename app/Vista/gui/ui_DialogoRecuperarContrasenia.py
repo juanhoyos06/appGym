@@ -7,7 +7,7 @@
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-
+from PySide2 import QtGui
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
@@ -44,6 +44,7 @@ class Ui_DialogRecuperarContrasenia(object):
         self.label_5.setScaledContents(True)
         self.lineedit_cedula = QLineEdit(self.frame_3)
         self.lineedit_cedula.setObjectName(u"lineedit_cedula")
+        self.lineedit_cedula.setValidator(QtGui.QIntValidator())
         self.lineedit_cedula.setGeometry(QRect(110, 22, 191, 36))
         self.lineedit_cedula.setMinimumSize(QSize(191, 36))
         self.lineedit_cedula.setMaximumSize(QSize(302, 36))

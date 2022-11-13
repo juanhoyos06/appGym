@@ -7,7 +7,7 @@
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-
+from PySide2 import QtGui
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
@@ -83,6 +83,7 @@ class Ui_DialogoCrearUsuario(object):
 
         self.lineedit_cedula_3 = QLineEdit(self.scrollAreaWidgetContents)
         self.lineedit_cedula_3.setObjectName(u"lineedit_cedula_3")
+        self.lineedit_cedula_3.setValidator(QtGui.QIntValidator())
         self.lineedit_cedula_3.setMinimumSize(QSize(191, 36))
         self.lineedit_cedula_3.setMaximumSize(QSize(302, 36))
         self.lineedit_cedula_3.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"
@@ -128,6 +129,7 @@ class Ui_DialogoCrearUsuario(object):
 
         self.lineedit_telefono = QLineEdit(self.scrollAreaWidgetContents)
         self.lineedit_telefono.setObjectName(u"lineedit_telefono")
+        self.lineedit_telefono.setValidator(QtGui.QIntValidator())
         self.lineedit_telefono.setMinimumSize(QSize(191, 36))
         self.lineedit_telefono.setMaximumSize(QSize(302, 36))
         self.lineedit_telefono.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"
@@ -172,6 +174,7 @@ class Ui_DialogoCrearUsuario(object):
 
         self.lineedit_edad = QLineEdit(self.scrollAreaWidgetContents)
         self.lineedit_edad.setObjectName(u"lineedit_edad")
+        self.lineedit_edad.setValidator(QtGui.QIntValidator())
         self.lineedit_edad.setMinimumSize(QSize(191, 36))
         self.lineedit_edad.setMaximumSize(QSize(302, 36))
         self.lineedit_edad.setStyleSheet(u"background-color: rgb(223, 223, 223);\n"

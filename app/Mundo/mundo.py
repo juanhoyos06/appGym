@@ -66,10 +66,17 @@ class Gym:
                          f"'{sexo}','{telefono}','{correo}','{contrasenia}', '{cargo}') "
 
 
-        if self.buscar_usuario(cedula) == [] and contrasenia == verificarContrasenia:
+        if self.buscar_usuario(cedula) == [] and contrasenia == verificarContrasenia and "@" in correo:
             self.c.insert_in_database(consultaInsert)
-        elif self.buscar_usuario(cedula) == [] and contrasenia != verificarContrasenia:
+
+        elif self.buscar_usuario(cedula) == [] and contrasenia != verificarContrasenia and "@" in correo:
             raise ContraseniasDiferentes("Las contraseñas no coinciden")
+
+        elif self.buscar_usuario(cedula) == [] and contrasenia != verificarContrasenia and "@" not in correo:
+            raise ErrorMultiple("El correo es invalido y las contraseñas no coinciden")
+
+        elif self.buscar_usuario(cedula) == [] and contrasenia == verificarContrasenia and "@" not in correo:
+            raise CorreoInvalido("El correo ingresado no es valido")
 
         else:
             raise UsuarioExistenteError(cedula, f"Ya existe un usuario con la cedula{cedula}")
@@ -163,18 +170,20 @@ class Gym:
 
         return self.c.select_in_database(consulta)
 
-    def enviar_opinion(self, cedula, descripcion, fecha):
+    def enviar_opinion(self, cedula, descripcion, fecha, asunto):
 
-        consultaOpinion  = f"INSERT INTO Opinion VALUES('{cedula}', '{descripcion}', '{fecha}')"
+        consultaOpinion  = f"INSERT INTO Opinion VALUES('{cedula}', '{descripcion}', '{fecha}', '{asunto}')"
         self.c.insert_in_database(consultaOpinion)
 
     def eliminar_reserva(self,cedula,fecha):
 
         consultaBuscarReserva = f"SELECT hora FROM Reserva WHERE fecha = '{fecha}' AND id_usuario ='{cedula}'"
         hora = self.c.select_in_database(consultaBuscarReserva)
-        consultaEliminarReserva = f"DELETE FROM Reserva WHERE fecha = '{fecha}' AND hora = '{hora[0][0]}' AND id_usuario ='{cedula}'"
+
+
 
         if hora:
+            consultaEliminarReserva = f"DELETE FROM Reserva WHERE fecha = '{fecha}' AND hora = '{hora[0][0]}' AND id_usuario ='{cedula}'"
             self.c.delete_in_database(consultaEliminarReserva)
         else:
             raise ReservaNoExistenteError(cedula, f"Usted no tiene una reserva para eliminar")

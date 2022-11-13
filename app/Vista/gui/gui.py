@@ -140,9 +140,25 @@ class VentanaLogin(QMainWindow):
 
 
             try:
-                self.gym.crear_usuario(cedula, nombre, telefono , correo, edad, genero, contrasenia, confirmarContrasenia, cargo)
+                self.gym.crear_usuario(cedula, nombre.upper(), telefono , correo.upper(), edad, genero, contrasenia, confirmarContrasenia, cargo.upper())
 
             except ContraseniasDiferentes as err:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Error creando usuario.")
+                msg_box.setIcon(QMessageBox.Critical)
+                msg_box.setText(err.msg)
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+
+            except CorreoInvalido as err:
+                msg_box = QMessageBox(self)
+                msg_box.setWindowTitle("Error creando usuario.")
+                msg_box.setIcon(QMessageBox.Critical)
+                msg_box.setText(err.msg)
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec_()
+
+            except ErrorMultiple as err:
                 msg_box = QMessageBox(self)
                 msg_box.setWindowTitle("Error creando usuario.")
                 msg_box.setIcon(QMessageBox.Critical)
@@ -192,9 +208,9 @@ class VentanaReservas(QMainWindow):
         mesActual = traductor.translate(calendar.month_name[diaActual.month]) #nombre del mes  del dia actual
         mesSiguiente = traductor.translate(calendar.month_name[diaSiguiente.month]) #nombre del mes del dia siguiente
 
-        if nombreDia == "sábado" or nombreDia == "domingo": #Comprueba si los dias son diferentes al fin de semana
+        if nombreDia == "Sábado" or nombreDia == "Domingo": #Comprueba si los dias son diferentes al fin de semana
             self.ventanaReservas.pbutton_reservadia.setEnabled(False)#Deshabilita los botones
-        if nombreDiaSiguiente == "sábado" or nombreDiaSiguiente == "domingo": #Comprueba si los dias son diferentes al fin de semana
+        if nombreDiaSiguiente == "Sábado" or nombreDiaSiguiente == "Domingo": #Comprueba si los dias son diferentes al fin de semana
             self.ventanaReservas.pbutton_reservadiaSig.setEnabled(False) #Deshabilita los botones
 
         self.ventanaReservas.label_diaActual.setText(nombreDia) # Lleva el nombre del dia al label
@@ -342,26 +358,36 @@ class VentanaTurnos(QMainWindow):
         cuposDisponiblesT5 = self.gym.cupos_disponibles_por_turno(self.fecha,'14:00')
         cuposDisponiblesT6 = self.gym.cupos_disponibles_por_turno(self.fecha,'16:00')
         cuposDisponiblesT7 = self.gym.cupos_disponibles_por_turno(self.fecha,'18:00')
+        fecha_t1 = datetime.strptime("6:00:00", "%H:%M:%S").time()
+        fecha_t2 = datetime.strptime("8:00:00", "%H:%M:%S").time()
+        fecha_t3 = datetime.strptime("10:00:00", "%H:%M:%S").time()
+        fecha_t4 = datetime.strptime("12:00:00", "%H:%M:%S").time()
+        fecha_t5 = datetime.strptime("14:00:00", "%H:%M:%S").time()
+        fecha_t6 = datetime.strptime("16:00:00", "%H:%M:%S").time()
+        fecha_t7 = datetime.strptime("18:00:00", "%H:%M:%S").time()
 
-        if cuposDisponiblesT1 == 0:
+
+
+
+        if cuposDisponiblesT1 == 0 or datetime.now().time() > fecha_t1:
             self.ventanaTurno.pbutton_turno1.setEnabled(False)
 
-        if cuposDisponiblesT2 == 0:
+        if cuposDisponiblesT2 == 0 or datetime.now().time() > fecha_t2:
             self.ventanaTurno.pbutton_turno2.setEnabled(False)
 
-        if cuposDisponiblesT3 == 0:
+        if cuposDisponiblesT3 == 0 or datetime.now().time() > fecha_t3:
             self.ventanaTurno.pbutton_turno3.setEnabled(False)
 
-        if cuposDisponiblesT4 == 0:
+        if cuposDisponiblesT4 == 0 or datetime.now().time() > fecha_t4:
             self.ventanaTurno.pbutton_turno4.setEnabled(False)
 
-        if cuposDisponiblesT5 == 0:
+        if cuposDisponiblesT5 == 0 or datetime.now().time() > fecha_t5:
             self.ventanaTurno.pbutton_turno5.setEnabled(False)
 
-        if cuposDisponiblesT6 == 0:
+        if cuposDisponiblesT6 == 0 or datetime.now().time() > fecha_t6:
             self.ventanaTurno.pbutton_turno6.setEnabled(False)
 
-        if cuposDisponiblesT7 == 0:
+        if cuposDisponiblesT7 == 0 or datetime.now().time() > fecha_t7:
             self.ventanaTurno.pbutton_turno7.setEnabled(False)
 
 
@@ -369,7 +395,7 @@ class VentanaTurnos(QMainWindow):
         self.ventanaTurno.pbutton_turno1.setText(f"6:00AM - 8:00AM                      {cuposDisponiblesT1} Cupos Disponibles")
         self.ventanaTurno.pbutton_turno2.setText(f"8:00AM - 10:00AM                     {cuposDisponiblesT2} Cupos Disponibles")
         self.ventanaTurno.pbutton_turno3.setText(f"10:00AM - 12:00AM                    {cuposDisponiblesT3} Cupos Disponibles")
-        self.ventanaTurno.pbutton_turno4.setText(f"2:00AM - 2:00PM                      {cuposDisponiblesT4} Cupos Disponibles")
+        self.ventanaTurno.pbutton_turno4.setText(f"12:00AM - 2:00PM                      {cuposDisponiblesT4} Cupos Disponibles")
         self.ventanaTurno.pbutton_turno5.setText(f"2:00PM - 4:00PM                      {cuposDisponiblesT5} Cupos Disponibles")
         self.ventanaTurno.pbutton_turno6.setText(f"4:00PM - 6:00PM                      {cuposDisponiblesT6} Cupos Disponibles")
         self.ventanaTurno.pbutton_turno7.setText(f"6:00PM - 8:00PM                      {cuposDisponiblesT7} Cupos Disponibles")
@@ -625,15 +651,24 @@ class VentanaOpiniones(QMainWindow):
         self.ventana.show()
 
     def enviar_opinion(self):
-        """
+
         fechaActual = datetime.strftime(datetime.now(), "%d-%m-%y")
-        #descripcion = self.ventanaOpiniones.textedit_descripcion.
+        descripcion = self.ventanaOpiniones.textedit_descripcion.toPlainText()
         asunto = self.ventanaOpiniones.lineedit_asunto.text()
 
         if descripcion and asunto:
 
-            self.gym.enviar_opinion(self.cedula, descripcion, fechaActual)
+            self.gym.enviar_opinion(self.cedula, descripcion, fechaActual, asunto)
 
+            msg_box = QMessageBox(self)
+            msg_box.setWindowTitle("Operacion Exitosa")
+            msg_box.setIcon(QMessageBox.Information)
+            msg_box.setText("Opinion enviada correctamente")
+            msg_box.setStandardButtons(QMessageBox.Ok)
+            msg_box.exec_()
+
+            self.ventanaOpiniones.textedit_descripcion.clear()
+            self.ventanaOpiniones.lineedit_asunto.clear()
         else:
             msg_box = QMessageBox(self)
             msg_box.setWindowTitle("Error de validación")
@@ -641,8 +676,6 @@ class VentanaOpiniones(QMainWindow):
             msg_box.setText("Debe ingresar todos los campos obligatorios.")
             msg_box.setStandardButtons(QMessageBox.Ok)
             msg_box.exec_()
-        """
-        pass
 
 class VentanaUsuario(QMainWindow):
     def __init__(self, cedula, gym: Gym):
@@ -668,6 +701,8 @@ class VentanaUsuario(QMainWindow):
             datos[0][2] = "Indefinido"
         self.ventanaUsuario.label_sexo.setText(str(datos[0][2]))
 
+
+
     def abrir_dialogo_cambiar_contrasenia(self):
         dialog = DialogoCambiarContrasenia(self)
         resp = dialog.exec_()
@@ -691,6 +726,8 @@ class VentanaUsuario(QMainWindow):
                     msg_box.setStandardButtons(QMessageBox.Ok)
                     msg_box.exec_()
 
+
+
                 except UsuarioNoExistenteError as err:
                     msg_box = QMessageBox(self)
                     msg_box.setWindowTitle("Error recuperando contraseña.")
@@ -698,6 +735,7 @@ class VentanaUsuario(QMainWindow):
                     msg_box.setText(err.msg)
                     msg_box.setStandardButtons(QMessageBox.Ok)
                     msg_box.exec_()
+
                 else:
                     msg_box = QMessageBox(self)
                     msg_box.setWindowTitle("Operacion Exitosa")
@@ -713,6 +751,7 @@ class VentanaUsuario(QMainWindow):
                 msg_box.setText("Debe de ingresar todos los campos")
                 msg_box.setStandardButtons(QMessageBox.Ok)
                 msg_box.exec_()
+
 
     def cerrar_sesion(self):
         """
@@ -851,6 +890,7 @@ class DialogoCambiarContrasenia(QDialog):
         QDialog.__init__(self,parent)
         self.ui = Ui_DialogCambiarContrasenia()
         self.ui.setupUi(self)
+
 
 
     def accept(self) -> None:
