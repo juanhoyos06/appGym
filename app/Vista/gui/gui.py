@@ -365,29 +365,29 @@ class VentanaTurnos(QMainWindow):
         fecha_t5 = datetime.strptime("14:00:00", "%H:%M:%S").time()
         fecha_t6 = datetime.strptime("16:00:00", "%H:%M:%S").time()
         fecha_t7 = datetime.strptime("18:00:00", "%H:%M:%S").time()
+        fechaActual = datetime.strftime(datetime.now(),"%d-%m-%y")
 
 
 
-
-        if cuposDisponiblesT1 == 0 or datetime.now().time() > fecha_t1:
+        if cuposDisponiblesT1 == 0 or ( self.fecha == fechaActual and datetime.now().time() > fecha_t1):
             self.ventanaTurno.pbutton_turno1.setEnabled(False)
 
-        if cuposDisponiblesT2 == 0 or datetime.now().time() > fecha_t2:
+        if cuposDisponiblesT2 == 0 or ( self.fecha == fechaActual and datetime.now().time() > fecha_t2):
             self.ventanaTurno.pbutton_turno2.setEnabled(False)
 
-        if cuposDisponiblesT3 == 0 or datetime.now().time() > fecha_t3:
+        if cuposDisponiblesT3 == 0 or ( self.fecha == fechaActual and datetime.now().time() > fecha_t3):
             self.ventanaTurno.pbutton_turno3.setEnabled(False)
 
-        if cuposDisponiblesT4 == 0 or datetime.now().time() > fecha_t4:
+        if cuposDisponiblesT4 == 0 or ( self.fecha == fechaActual and datetime.now().time() > fecha_t4):
             self.ventanaTurno.pbutton_turno4.setEnabled(False)
 
-        if cuposDisponiblesT5 == 0 or datetime.now().time() > fecha_t5:
+        if cuposDisponiblesT5 == 0 or ( self.fecha == fechaActual and datetime.now().time() > fecha_t5):
             self.ventanaTurno.pbutton_turno5.setEnabled(False)
 
-        if cuposDisponiblesT6 == 0 or datetime.now().time() > fecha_t6:
+        if cuposDisponiblesT6 == 0 or ( self.fecha == fechaActual and datetime.now().time() > fecha_t6):
             self.ventanaTurno.pbutton_turno6.setEnabled(False)
 
-        if cuposDisponiblesT7 == 0 or datetime.now().time() > fecha_t7:
+        if cuposDisponiblesT7 == 0 or ( self.fecha == fechaActual and datetime.now().time() > fecha_t7):
             self.ventanaTurno.pbutton_turno7.setEnabled(False)
 
 

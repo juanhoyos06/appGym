@@ -1,5 +1,6 @@
 from datetime import datetime
 from datetime import timedelta
+
 import calendar
 from deep_translator import GoogleTranslator
 
@@ -27,7 +28,7 @@ print(datetime.strftime(datetime.now(),"%d-%m-%y"))
 hora = fecha.time()
 fecha_t1 = datetime.strptime("6:00:00", "%H:%M:%S").time()
 print(fecha_t1)
-if hora > datetime.strptime("6:00:00", "%H:%M:%S").time():
+if hora > datetime.strptime(f"{str(datetime.now())} 6:00:00", "%d-%m-%y %H:%M:%S").time():
     print(fecha.time())
 """
 
